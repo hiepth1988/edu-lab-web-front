@@ -1,0 +1,77 @@
+{
+  "nav": {
+    "home": "Trang chủ",
+    "solutions": "Giải pháp",
+    "products": "Sản phẩm",
+    "technology": "Công nghệ",
+    "research": "Nghiên cứu",
+    "caseStudies": "Case Studies",
+    "insights": "Insights",
+    "about": "Về chúng tôi",
+    "contact": "Liên hệ",
+    "search": "Tìm kiếm"
+  },
+  "cta": {
+    "bookConsultation": "Đặt lịch tư vấn",
+    "requestDemo": "Xem demo",
+    "viewAll": "Xem tất cả"
+  },
+  "contactForm": {
+    "title": "Liên hệ với chúng tôi",
+    "name": "Họ tên",
+    "email": "Email",
+    "phone": "Số điện thoại",
+    "company": "Công ty",
+    "need": "Nhu cầu",
+    "needOptions": {
+      "lms": "LMS",
+      "exam": "Online Exam Platform",
+      "ai": "AI Education",
+      "analytics": "Learning Analytics",
+      "consulting": "EdTech Consulting",
+      "other": "Khác"
+    },
+    "message": "Nội dung",
+    "submit": "Gửi yêu cầu",
+    "submitting": "Đang gửi...",
+    "success": "Cảm ơn bạn, chúng tôi sẽ phản hồi sớm nhất.",
+    "error": "Có lỗi xảy ra, vui lòng thử lại."
+  },
+  "footer": {
+    "rights": "Bản quyền thuộc XO Education Technology Lab.",
+    "newsletterTitle": "Nhận bài viết mới nhất",
+    "newsletterSubmit": "Đăng ký"
+  },
+  "notFoundTranslation": {
+    "title": "Nội dung này chưa có phiên bản tiếng Việt",
+    "body": "Vui lòng xem bản tiếng Anh hoặc quay lại trang chủ."
+  },
+  "errorPage": {
+    "title404": "Không tìm thấy trang",
+    "body404": "Trang bạn tìm không tồn tại hoặc đã bị di chuyển.",
+    "titleGeneric": "Đã có lỗi xảy ra",
+    "bodyGeneric": "Vui lòng thử lại sau.",
+    "backHome": "Về trang chủ"
+  },
+  "search": {
+    "title": "Tìm kiếm",
+    "placeholder": "Tìm bài viết, research, case study...",
+    "submit": "Tìm kiếm",
+    "loading": "Đang tìm...",
+    "empty": "Không tìm thấy kết quả.",
+    "types": {
+      "post": "Insights",
+      "research": "Research",
+      "case-study": "Case Study"
+    }
+  },
+  "detail": {
+    "problem": "Vấn đề",
+    "solutionOverview": "Giải pháp",
+    "coreFeatures": "Tính năng chính",
+    "faq": "Câu hỏi thường gặp",
+    "relatedInsights": "Bài viết liên quan",
+    "result": "Kết quả",
+    "solution": "Giải pháp"
+  }
+}
