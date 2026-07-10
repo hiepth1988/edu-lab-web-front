@@ -17,7 +17,7 @@ const navItems = computed(() => [
     <header class="border-b border-slate-200">
       <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
         <NuxtLink :to="localePath('/')" class="font-semibold text-slate-900">
-          XO Education Technology Lab
+          XO Edu Lab
         </NuxtLink>
 
         <nav class="hidden md:flex items-center gap-6 text-sm text-slate-600">

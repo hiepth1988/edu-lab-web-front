@@ -4,5 +4,9 @@ export default defineEventHandler((event) => {
 
   setHeader(event, 'Content-Type', 'text/plain')
 
+  if (!config.public.allowIndexing) {
+    return `User-agent: *\nDisallow: /\n`
+  }
+
   return `User-agent: *\nAllow: /\n\nSitemap: ${siteUrl}/sitemap.xml\n`
 })

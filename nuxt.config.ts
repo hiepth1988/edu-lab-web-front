@@ -13,6 +13,9 @@ export default defineNuxtConfig({
     public: {
       apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || 'http://127.0.0.1:8000',
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+      // Site-wide crawl switch: keep false until there's enough content to open to Google.
+      // Flip to "true" (env NUXT_PUBLIC_ALLOW_INDEXING=true) when ready to go live on search.
+      allowIndexing: process.env.NUXT_PUBLIC_ALLOW_INDEXING === 'true',
     },
   },
 
@@ -30,7 +33,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      titleTemplate: '%s — XO Education Technology Lab',
+      titleTemplate: '%s — XO Edu Lab',
     },
   },
 })
