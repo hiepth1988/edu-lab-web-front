@@ -3,6 +3,10 @@ export interface PostSummary {
   slug: string
   title: string
   excerpt: string | null
+  meta_title: string | null
+  meta_description: string | null
+  og_image: string | null
+  canonical_url: string | null
   featured_image: string | null
   published_at: string | null
   category: { slug: string; name: string } | null
