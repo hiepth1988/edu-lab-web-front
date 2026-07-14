@@ -33,17 +33,17 @@ useSeoMeta({
 
     <div v-if="data.data.problem">
       <h2 class="text-xl font-semibold text-slate-900">{{ t('detail.problem') }}</h2>
-      <p class="mt-2 text-slate-700 whitespace-pre-line">{{ data.data.problem }}</p>
+      <div class="mt-2 prose prose-slate max-w-none text-slate-700" v-html="data.data.problem" />
     </div>
 
     <div v-if="data.data.solution_text">
       <h2 class="text-xl font-semibold text-slate-900">{{ t('detail.solution') }}</h2>
-      <p class="mt-2 text-slate-700 whitespace-pre-line">{{ data.data.solution_text }}</p>
+      <div class="mt-2 prose prose-slate max-w-none text-slate-700" v-html="data.data.solution_text" />
     </div>
 
     <div v-if="data.data.result">
       <h2 class="text-xl font-semibold text-slate-900">{{ t('detail.result') }}</h2>
-      <p class="mt-2 text-slate-700 whitespace-pre-line">{{ data.data.result }}</p>
+      <div class="mt-2 prose prose-slate max-w-none text-slate-700" v-html="data.data.result" />
     </div>
 
     <NuxtLinkLocale
