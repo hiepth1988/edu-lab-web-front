@@ -44,46 +44,46 @@ async function onSubmit() {
   <form class="space-y-5" @submit.prevent="onSubmit">
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
       <div>
-        <label class="text-sm font-medium text-slate-700">{{ t('contactForm.name') }}</label>
+        <label class="text-sm font-medium text-on-surface-variant">{{ t('contactForm.name') }}</label>
         <input
           v-model="form.name"
           type="text"
           required
-          class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900"
+          class="mt-1 w-full rounded-lg border border-outline-variant/50 px-3 py-2 text-sm focus:outline-none focus:ring-4 focus:ring-secondary/10 focus:border-secondary"
         />
       </div>
       <div>
-        <label class="text-sm font-medium text-slate-700">{{ t('contactForm.email') }}</label>
+        <label class="text-sm font-medium text-on-surface-variant">{{ t('contactForm.email') }}</label>
         <input
           v-model="form.email"
           type="email"
           required
-          class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900"
+          class="mt-1 w-full rounded-lg border border-outline-variant/50 px-3 py-2 text-sm focus:outline-none focus:ring-4 focus:ring-secondary/10 focus:border-secondary"
         />
       </div>
       <div>
-        <label class="text-sm font-medium text-slate-700">{{ t('contactForm.phone') }}</label>
+        <label class="text-sm font-medium text-on-surface-variant">{{ t('contactForm.phone') }}</label>
         <input
           v-model="form.phone"
           type="text"
-          class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900"
+          class="mt-1 w-full rounded-lg border border-outline-variant/50 px-3 py-2 text-sm focus:outline-none focus:ring-4 focus:ring-secondary/10 focus:border-secondary"
         />
       </div>
       <div>
-        <label class="text-sm font-medium text-slate-700">{{ t('contactForm.company') }}</label>
+        <label class="text-sm font-medium text-on-surface-variant">{{ t('contactForm.company') }}</label>
         <input
           v-model="form.company"
           type="text"
-          class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900"
+          class="mt-1 w-full rounded-lg border border-outline-variant/50 px-3 py-2 text-sm focus:outline-none focus:ring-4 focus:ring-secondary/10 focus:border-secondary"
         />
       </div>
     </div>
 
     <div>
-      <label class="text-sm font-medium text-slate-700">{{ t('contactForm.need') }}</label>
+      <label class="text-sm font-medium text-on-surface-variant">{{ t('contactForm.need') }}</label>
       <select
         v-model="form.need"
-        class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900"
+        class="mt-1 w-full rounded-lg border border-outline-variant/50 px-3 py-2 text-sm focus:outline-none focus:ring-4 focus:ring-secondary/10 focus:border-secondary"
       >
         <option value="" disabled>—</option>
         <option v-for="opt in needOptions" :key="opt.value" :value="opt.value">
@@ -93,26 +93,26 @@ async function onSubmit() {
     </div>
 
     <div>
-      <label class="text-sm font-medium text-slate-700">{{ t('contactForm.message') }}</label>
+      <label class="text-sm font-medium text-on-surface-variant">{{ t('contactForm.message') }}</label>
       <textarea
         v-model="form.message"
         rows="4"
-        class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900"
+        class="mt-1 w-full rounded-lg border border-outline-variant/50 px-3 py-2 text-sm focus:outline-none focus:ring-4 focus:ring-secondary/10 focus:border-secondary"
       />
     </div>
 
     <button
       type="submit"
       :disabled="status === 'submitting'"
-      class="rounded-full bg-slate-900 text-white text-sm font-medium px-6 py-3 hover:bg-slate-800 disabled:opacity-60"
+      class="rounded-xl bg-secondary text-white text-sm font-medium px-6 py-3 hover:opacity-90 disabled:opacity-60"
     >
       {{ status === 'submitting' ? t('contactForm.submitting') : t('contactForm.submit') }}
     </button>
 
-    <p v-if="status === 'success'" class="text-sm text-emerald-600">
+    <p v-if="status === 'success'" class="text-sm text-secondary">
       {{ t('contactForm.success') }}
     </p>
-    <p v-if="status === 'error'" class="text-sm text-red-600">
+    <p v-if="status === 'error'" class="text-sm text-error">
       {{ t('contactForm.error') }}
     </p>
   </form>

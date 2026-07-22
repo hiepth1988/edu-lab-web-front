@@ -22,36 +22,43 @@ useHead({
 </script>
 
 <template>
-  <article v-if="data" class="max-w-2xl mx-auto px-6 py-16">
-    <p v-if="data.data.category" class="text-xs font-medium uppercase tracking-wide text-slate-500">
+  <article v-if="data" class="max-w-2xl mx-auto px-margin-mobile sm:px-margin-desktop py-xl">
+    <p v-if="data.data.category" class="text-xs font-bold uppercase tracking-widest text-secondary">
       {{ data.data.category.name }}
     </p>
-    <h1 class="mt-2 text-3xl font-semibold text-slate-900">{{ data.data.title }}</h1>
-    <p class="mt-4 text-lg text-slate-600">{{ data.data.excerpt }}</p>
+    <h1 class="mt-2 font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary">{{ data.data.title }}</h1>
+    <p class="mt-md font-body-lg text-body-lg text-on-surface-variant">{{ data.data.excerpt }}</p>
 
-    <div class="mt-8 prose prose-slate max-w-none text-slate-700" v-html="data.data.content" />
+    <img
+      v-if="data.data.featured_image"
+      :src="data.data.featured_image"
+      :alt="data.data.title"
+      class="mt-lg h-64 sm:h-80 w-full rounded-xl object-cover"
+    />
 
-    <div v-if="data.data.tags.length" class="mt-8 flex flex-wrap gap-2">
+    <div class="mt-lg prose max-w-none text-on-surface" v-html="data.data.content" />
+
+    <div v-if="data.data.tags.length" class="mt-lg flex flex-wrap gap-2">
       <span
         v-for="tag in data.data.tags"
         :key="tag.slug"
-        class="text-xs rounded-full border border-slate-300 px-3 py-1 text-slate-600"
+        class="text-xs rounded-full border border-outline-variant/50 px-3 py-1 text-on-surface-variant"
       >
         {{ tag.name }}
       </span>
     </div>
 
-    <div v-if="data.data.related_posts?.length" class="mt-12 border-t border-slate-100 pt-8">
-      <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500">{{ t('detail.relatedInsights') }}</h2>
-      <div class="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+    <div v-if="data.data.related_posts?.length" class="mt-xl border-t border-outline-variant/30 pt-lg">
+      <h2 class="text-xs font-bold uppercase tracking-widest text-secondary">{{ t('detail.relatedInsights') }}</h2>
+      <div class="mt-md grid grid-cols-1 sm:grid-cols-3 gap-md">
         <NuxtLinkLocale
           v-for="related in data.data.related_posts"
           :key="related.slug"
           :to="`/insights/${related.slug}`"
-          class="block rounded-lg border border-slate-200 p-4 hover:border-slate-900 transition-colors"
+          class="group block bg-white rounded-xl premium-border p-md hover-lift"
         >
-          <p class="font-medium text-slate-900 text-sm">{{ related.title }}</p>
-          <p class="mt-1 text-xs text-slate-500">{{ related.excerpt }}</p>
+          <p class="font-headline-sm text-sm text-primary group-hover:text-secondary transition-colors">{{ related.title }}</p>
+          <p class="mt-1 text-xs text-on-surface-variant">{{ related.excerpt }}</p>
         </NuxtLinkLocale>
       </div>
     </div>

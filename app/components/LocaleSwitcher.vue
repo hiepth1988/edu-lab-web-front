@@ -13,7 +13,7 @@ const available = computed(() =>
     <button
       v-for="l in available"
       :key="l.code"
-      class="rounded-full border border-slate-300 px-3 py-1 text-slate-600 hover:border-slate-900 hover:text-slate-900"
+      class="rounded-full border border-outline-variant/50 px-3 py-1 text-on-surface-variant hover:border-secondary hover:text-secondary transition-colors"
       @click="setLocale(l.code as 'vi' | 'en')"
     >
       {{ l.code.toUpperCase() }}

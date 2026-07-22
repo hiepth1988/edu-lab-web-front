@@ -22,16 +22,16 @@ function handleBackHome() {
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col items-center justify-center px-6 text-center">
-    <p class="text-sm font-medium text-slate-400">{{ error.statusCode }}</p>
-    <h1 class="mt-2 text-2xl font-semibold text-slate-900">
+  <div class="min-h-screen flex flex-col items-center justify-center px-margin-mobile text-center bg-canvas">
+    <p class="font-label-md text-sm font-medium text-secondary">{{ error.statusCode }}</p>
+    <h1 class="mt-2 font-headline-lg text-headline-lg-mobile text-primary">
       {{ is404 ? messages.errorPage.title404 : messages.errorPage.titleGeneric }}
     </h1>
-    <p class="mt-3 text-slate-600">
+    <p class="mt-sm font-body-md text-on-surface-variant">
       {{ is404 ? messages.errorPage.body404 : messages.errorPage.bodyGeneric }}
     </p>
     <button
-      class="mt-8 rounded-full bg-slate-900 text-white px-6 py-3 text-sm font-medium hover:bg-slate-800"
+      class="mt-xl bg-secondary text-white px-xl py-md rounded-xl font-label-md hover:opacity-90 transition-all"
       @click="handleBackHome"
     >
       {{ messages.errorPage.backHome }}

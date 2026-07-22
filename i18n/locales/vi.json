@@ -1,18 +1,29 @@
 {
   "nav": {
     "home": "Trang chủ",
+    "whyXo": "Vì sao chọn XO",
     "solutions": "Giải pháp",
     "products": "Sản phẩm",
-    "technology": "Công nghệ",
+    "whoWeHelp": "Dành cho ai",
     "research": "Nghiên cứu",
-    "caseStudies": "Case Studies",
+    "ourWork": "Dự án",
     "insights": "Insights",
-    "about": "Về chúng tôi",
+    "about": "Vì sao chọn XO",
     "contact": "Liên hệ",
     "search": "Tìm kiếm"
   },
+  "navGroups": {
+    "solutionsBuild": "Xây dựng",
+    "solutionsImprove": "Nâng cấp",
+    "solutionsOperate": "Vận hành",
+    "solutionsCustomProduct": "Sản phẩm EdTech riêng",
+    "productsLive": "Sản phẩm đang vận hành",
+    "productsCore": "Core Engines",
+    "productsDev": "Đang phát triển"
+  },
   "cta": {
     "bookConsultation": "Đặt lịch tư vấn",
+    "buildWithXo": "Xây dựng cùng XO",
     "requestDemo": "Xem demo",
     "viewAll": "Xem tất cả"
   },
@@ -40,7 +51,17 @@
   "footer": {
     "rights": "Bản quyền thuộc XO Edu Lab.",
     "newsletterTitle": "Nhận bài viết mới nhất",
-    "newsletterSubmit": "Đăng ký"
+    "newsletterSubmit": "Đăng ký",
+    "tagline": "Xây dựng giáo dục tốt hơn, từng sản phẩm có ý nghĩa.",
+    "whyXoGroup": "Vì sao chọn XO",
+    "ourProcess": "Quy trình của XO",
+    "forCreatorsGroup": "Dành cho người sáng tạo",
+    "forEducators": "Dành cho nhà giáo dục",
+    "forEdtechTeams": "Dành cho đội ngũ EdTech",
+    "companyGroup": "Công ty",
+    "privacyPolicy": "Chính sách bảo mật",
+    "termsOfService": "Điều khoản dịch vụ",
+    "contactUs": "Liên hệ"
   },
   "notFoundTranslation": {
     "title": "Nội dung này chưa có phiên bản tiếng Việt",
@@ -62,8 +83,11 @@
     "types": {
       "post": "Insights",
       "research": "Research",
-      "case-study": "Case Study"
+      "project": "Dự án"
     }
+  },
+  "insights": {
+    "empty": "Chưa có bài viết nào được xuất bản."
   },
   "detail": {
     "problem": "Vấn đề",

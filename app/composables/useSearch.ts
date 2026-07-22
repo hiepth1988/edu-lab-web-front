@@ -1,5 +1,5 @@
 export interface SearchResult {
-  type: 'post' | 'research' | 'case-study'
+  type: 'post' | 'research' | 'project'
   slug: string
   title: string
   excerpt: string | null

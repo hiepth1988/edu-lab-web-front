@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
   const siteUrl = config.public.siteUrl || 'http://localhost:3000'
   const apiBase = config.public.apiBaseUrl
 
-  const staticPaths = ['', '/about', '/contact', '/solutions', '/products', '/case-studies', '/insights', '/research']
+  const staticPaths = ['', '/about', '/contact', '/privacy', '/terms', '/solutions', '/products', '/our-work', '/who-we-help', '/insights', '/research']
 
   const urls: string[] = []
 
@@ -22,7 +22,8 @@ export default defineEventHandler(async (event) => {
     { endpoint: 'posts', prefix: 'insights' },
     { endpoint: 'solutions', prefix: 'solutions' },
     { endpoint: 'products', prefix: 'products' },
-    { endpoint: 'case-studies', prefix: 'case-studies' },
+    { endpoint: 'projects', prefix: 'our-work' },
+    { endpoint: 'audiences', prefix: 'who-we-help' },
     { endpoint: 'research', prefix: 'research' },
   ]
 

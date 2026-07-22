@@ -6,21 +6,24 @@ useSeoMeta({ title: t('nav.research') })
 </script>
 
 <template>
-  <div class="max-w-5xl mx-auto px-6 py-16">
-    <h1 class="text-3xl font-semibold text-slate-900">{{ t('nav.research') }}</h1>
+  <div class="max-w-max-width mx-auto px-margin-mobile sm:px-margin-desktop py-xl">
+    <div class="max-w-2xl">
+      <span class="font-label-md text-label-md text-secondary uppercase tracking-wider">{{ t('nav.research') }}</span>
+      <h1 class="mt-2 font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary">{{ t('nav.research') }}</h1>
+    </div>
 
-    <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
+    <div class="mt-xl grid grid-cols-1 sm:grid-cols-2 gap-md">
       <NuxtLinkLocale
         v-for="post in data?.data ?? []"
         :key="post.id"
         :to="`/research/${post.slug}`"
-        class="block rounded-xl border border-slate-200 p-6 hover:border-slate-900 transition-colors"
+        class="group block bg-white rounded-xl premium-border p-md hover-lift"
       >
-        <p v-if="post.topic" class="text-xs font-medium uppercase tracking-wide text-slate-500">
+        <p v-if="post.topic" class="text-xs font-bold uppercase tracking-widest text-secondary">
           {{ post.topic.name }}
         </p>
-        <h2 class="mt-2 text-lg font-semibold text-slate-900">{{ post.title }}</h2>
-        <p class="mt-2 text-sm text-slate-600">{{ post.excerpt }}</p>
+        <h2 class="mt-2 font-headline-sm text-primary group-hover:text-secondary transition-colors">{{ post.title }}</h2>
+        <p class="mt-xs font-body-md text-on-surface-variant">{{ post.excerpt }}</p>
       </NuxtLinkLocale>
     </div>
   </div>

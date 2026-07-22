@@ -1,18 +1,29 @@
 {
   "nav": {
     "home": "Home",
+    "whyXo": "Why XO",
     "solutions": "Solutions",
     "products": "Products",
-    "technology": "Technology",
+    "whoWeHelp": "Who We Help",
     "research": "Research",
-    "caseStudies": "Case Studies",
+    "ourWork": "Our Work",
     "insights": "Insights",
-    "about": "About",
+    "about": "Why XO",
     "contact": "Contact",
     "search": "Search"
   },
+  "navGroups": {
+    "solutionsBuild": "Build",
+    "solutionsImprove": "Improve",
+    "solutionsOperate": "Operate",
+    "solutionsCustomProduct": "Custom EdTech Product",
+    "productsLive": "Live Products",
+    "productsCore": "Core Engines",
+    "productsDev": "In Development"
+  },
   "cta": {
     "bookConsultation": "Book a consultation",
+    "buildWithXo": "Build with XO",
     "requestDemo": "Request a demo",
     "viewAll": "View all"
   },
@@ -40,7 +51,17 @@
   "footer": {
     "rights": "XO Edu Lab. All rights reserved.",
     "newsletterTitle": "Get the latest insights",
-    "newsletterSubmit": "Subscribe"
+    "newsletterSubmit": "Subscribe",
+    "tagline": "Building better education, one meaningful product at a time.",
+    "whyXoGroup": "Why XO",
+    "ourProcess": "Our Process",
+    "forCreatorsGroup": "For Creators",
+    "forEducators": "For Educators",
+    "forEdtechTeams": "For EdTech Teams",
+    "companyGroup": "Company",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "contactUs": "Contact Us"
   },
   "notFoundTranslation": {
     "title": "This content is not available in English yet",
@@ -62,8 +83,11 @@
     "types": {
       "post": "Insights",
       "research": "Research",
-      "case-study": "Case Study"
+      "project": "Our Work"
     }
+  },
+  "insights": {
+    "empty": "No posts published yet."
   },
   "detail": {
     "problem": "Problem",

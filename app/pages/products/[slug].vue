@@ -14,40 +14,44 @@ useSeoMeta({
 </script>
 
 <template>
-  <div v-if="data" class="max-w-3xl mx-auto px-6 py-16 space-y-10">
-    <div>
-      <span
-        v-if="data.data.stage"
-        class="text-xs rounded-full bg-slate-100 text-slate-600 px-2 py-0.5"
-      >
-        {{ data.data.stage }}
-      </span>
-      <h1 class="mt-3 text-3xl font-semibold text-slate-900">{{ data.data.name }}</h1>
-      <p class="mt-4 text-lg text-slate-600">{{ data.data.role_summary }}</p>
-      <p v-if="data.data.description" class="mt-4 text-slate-700">{{ data.data.description }}</p>
-    </div>
-
-    <div v-if="data.data.features.length">
-      <h2 class="text-xl font-semibold text-slate-900">{{ t('detail.coreFeatures') }}</h2>
-      <ul class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <li
-          v-for="(feature, i) in data.data.features"
-          :key="i"
-          class="rounded-lg border border-slate-200 p-4"
+  <div v-if="data">
+    <section class="bg-surface-container-low">
+      <div class="max-w-3xl mx-auto px-margin-mobile sm:px-margin-desktop py-xl">
+        <span
+          v-if="data.data.stage"
+          class="inline-block text-xs rounded-full border border-outline-variant/50 text-on-surface-variant px-2 py-0.5"
         >
-          <p class="font-medium text-slate-900">{{ feature.title }}</p>
-          <p v-if="feature.description" class="mt-1 text-sm text-slate-600">
-            {{ feature.description }}
-          </p>
-        </li>
-      </ul>
-    </div>
+          {{ data.data.stage }}
+        </span>
+        <h1 class="mt-sm font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary">{{ data.data.name }}</h1>
+        <p class="mt-md font-body-lg text-body-lg text-on-surface-variant">{{ data.data.role_summary }}</p>
+        <p v-if="data.data.description" class="mt-sm font-body-md text-on-surface-variant">{{ data.data.description }}</p>
+      </div>
+    </section>
 
-    <NuxtLinkLocale
-      to="/contact"
-      class="inline-block rounded-full bg-slate-900 text-white px-6 py-3 text-sm font-medium hover:bg-slate-800"
-    >
-      {{ t('cta.bookConsultation') }}
-    </NuxtLinkLocale>
+    <div class="max-w-3xl mx-auto px-margin-mobile sm:px-margin-desktop py-xl space-y-xl">
+      <div v-if="data.data.features.length">
+        <h2 class="font-headline-sm text-headline-sm text-primary mb-md">{{ t('detail.coreFeatures') }}</h2>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+          <li
+            v-for="(feature, i) in data.data.features"
+            :key="i"
+            class="bg-white rounded-xl premium-border p-md"
+          >
+            <p class="font-headline-sm text-sm text-primary">{{ feature.title }}</p>
+            <p v-if="feature.description" class="mt-1 font-body-md text-sm text-on-surface-variant">
+              {{ feature.description }}
+            </p>
+          </li>
+        </ul>
+      </div>
+
+      <NuxtLinkLocale
+        to="/contact"
+        class="inline-block bg-secondary text-white px-xl py-md rounded-xl font-label-md hover:opacity-90 transition-all"
+      >
+        {{ t('cta.bookConsultation') }}
+      </NuxtLinkLocale>
+    </div>
   </div>
 </template>

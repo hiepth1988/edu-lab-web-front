@@ -5,6 +5,12 @@ export default defineNuxtConfig({
 
   modules: ['@nuxtjs/i18n', '@nuxtjs/tailwindcss'],
 
+  // @nuxtjs/tailwindcss's default cssPath resolution predates Nuxt 4's app/ srcDir
+  // convention, so it must be pointed at the real file explicitly.
+  tailwindcss: {
+    cssPath: '~/assets/css/tailwind.css',
+  },
+
   devServer: {
     port: 3000,
   },
