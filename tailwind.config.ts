@@ -77,15 +77,17 @@ export default <Partial<Config>>{
         'margin-desktop': '64px',
       },
       fontFamily: {
+        // Newsreader's Vietnamese diacritic rendering looked off in review, so the
+        // editorial serif was swapped for Spectral, which has solid Vietnamese coverage.
         sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-        serif: ['Newsreader', 'serif'],
-        'headline-lg-mobile': ['Newsreader'],
-        'display-lg': ['Newsreader'],
+        serif: ['Spectral', 'serif'],
+        'headline-lg-mobile': ['Spectral'],
+        'display-lg': ['Spectral'],
         'label-sm': ['"Plus Jakarta Sans"'],
-        'headline-md': ['Newsreader'],
+        'headline-md': ['Spectral'],
         'body-lg': ['"Plus Jakarta Sans"'],
         'body-md': ['"Plus Jakarta Sans"'],
-        'headline-lg': ['Newsreader'],
+        'headline-lg': ['Spectral'],
         'headline-sm': ['"Plus Jakarta Sans"'],
         'label-md': ['"Plus Jakarta Sans"'],
       },

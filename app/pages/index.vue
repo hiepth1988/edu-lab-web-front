@@ -174,26 +174,28 @@ useSeoMeta({
       <div class="text-center mb-xl">
         <h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary">{{ journey.heading }}</h2>
       </div>
-      <div class="flex flex-wrap justify-center gap-md items-center">
-        <template v-for="(step, i) in ((journey.extra as any)?.steps as Step[] ?? [])" :key="step.n">
-          <div class="flex flex-col items-center gap-xs w-28 text-center">
-            <div
-              class="w-16 h-16 rounded-full flex items-center justify-center font-bold transition-all"
-              :class="i === ((journey.extra as any)?.steps.length - 1)
-                ? 'bg-secondary text-white ring-4 ring-secondary/20'
-                : 'bg-surface-container-high text-primary'"
-            >
-              {{ step.n }}
+      <div class="overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden -mx-margin-mobile px-margin-mobile sm:mx-0 sm:px-0">
+        <div class="flex flex-nowrap sm:justify-center gap-xs sm:gap-md items-center w-max sm:w-full sm:mx-auto">
+          <template v-for="(step, i) in ((journey.extra as any)?.steps as Step[] ?? [])" :key="step.n">
+            <div class="flex flex-col items-center gap-xs w-20 sm:w-28 shrink-0 text-center">
+              <div
+                class="w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center font-bold transition-all"
+                :class="i === ((journey.extra as any)?.steps.length - 1)
+                  ? 'bg-secondary text-white ring-4 ring-secondary/20'
+                  : 'bg-surface-container-high text-primary'"
+              >
+                {{ step.n }}
+              </div>
+              <span
+                class="font-label-md text-xs sm:text-sm"
+                :class="i === ((journey.extra as any)?.steps.length - 1) ? 'text-secondary font-bold' : 'text-on-surface-variant'"
+              >
+                {{ step.label }}
+              </span>
             </div>
-            <span
-              class="font-label-md"
-              :class="i === ((journey.extra as any)?.steps.length - 1) ? 'text-secondary font-bold' : 'text-on-surface-variant'"
-            >
-              {{ step.label }}
-            </span>
-          </div>
-          <div v-if="i < ((journey.extra as any)?.steps.length - 1)" class="w-8 h-px bg-outline-variant" />
-        </template>
+            <div v-if="i < ((journey.extra as any)?.steps.length - 1)" class="w-4 sm:w-8 h-px bg-outline-variant shrink-0" />
+          </template>
+        </div>
       </div>
     </section>
 

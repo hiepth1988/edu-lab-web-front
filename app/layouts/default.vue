@@ -90,12 +90,12 @@ const mobileMenuOpen = ref(false)
               {{ t('nav.solutions') }}
               <span class="material-symbols-outlined text-[20px] transition-transform group-hover:rotate-180">expand_more</span>
             </button>
-            <div class="mega-menu absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[640px] glass-card rounded-xl p-md shadow-xl grid grid-cols-3 gap-md">
+            <div class="mega-menu z-50 absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[640px] bg-white border border-outline-variant/20 rounded-xl p-md shadow-xl grid grid-cols-3 gap-md">
               <div v-for="group in solutionGroups" :key="group.heading">
                 <h5 class="text-secondary font-label-md uppercase tracking-wider mb-2">{{ group.heading }}</h5>
-                <ul class="space-y-1">
+                <ul class="space-y-1.5">
                   <li v-for="item in group.items" :key="item.to">
-                    <NuxtLinkLocale :to="item.to" class="text-on-surface-variant hover:text-secondary text-sm block py-1">
+                    <NuxtLinkLocale :to="item.to" class="text-on-surface-variant hover:text-secondary text-sm leading-snug block py-1">
                       {{ item.label }}
                     </NuxtLinkLocale>
                   </li>
@@ -109,12 +109,12 @@ const mobileMenuOpen = ref(false)
               {{ t('nav.products') }}
               <span class="material-symbols-outlined text-[20px] transition-transform group-hover:rotate-180">expand_more</span>
             </button>
-            <div class="mega-menu absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[640px] glass-card rounded-xl p-md shadow-xl grid grid-cols-3 gap-md">
+            <div class="mega-menu z-50 absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[640px] bg-white border border-outline-variant/20 rounded-xl p-md shadow-xl grid grid-cols-3 gap-md">
               <div v-for="group in productGroups" :key="group.heading">
                 <h5 class="text-secondary font-label-md uppercase tracking-wider mb-2">{{ group.heading }}</h5>
-                <ul class="space-y-1">
+                <ul class="space-y-1.5">
                   <li v-for="item in group.items" :key="item.to">
-                    <NuxtLinkLocale :to="item.to" class="text-on-surface-variant hover:text-secondary text-sm block py-1">
+                    <NuxtLinkLocale :to="item.to" class="text-on-surface-variant hover:text-secondary text-sm leading-snug block py-1">
                       {{ item.label }}
                     </NuxtLinkLocale>
                   </li>
@@ -128,10 +128,10 @@ const mobileMenuOpen = ref(false)
               {{ t('nav.whoWeHelp') }}
               <span class="material-symbols-outlined text-[20px] transition-transform group-hover:rotate-180">expand_more</span>
             </button>
-            <div class="mega-menu absolute top-full left-0 mt-0 w-64 glass-card rounded-xl p-sm shadow-xl">
+            <div class="mega-menu z-50 absolute top-full left-0 mt-2 w-64 bg-white border border-outline-variant/20 rounded-xl p-sm shadow-xl">
               <ul class="space-y-1">
                 <li v-for="item in audienceItems" :key="item.to">
-                  <NuxtLinkLocale :to="item.to" class="text-on-surface-variant hover:text-secondary text-sm block px-md py-2 hover:bg-surface-container-low rounded-lg">
+                  <NuxtLinkLocale :to="item.to" class="text-on-surface-variant hover:text-secondary text-sm leading-snug block px-md py-2 hover:bg-surface-container-low rounded-lg">
                     {{ item.label }}
                   </NuxtLinkLocale>
                 </li>
