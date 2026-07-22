@@ -74,19 +74,19 @@ const mobileMenuOpen = ref(false)
 <template>
   <div class="min-h-screen flex flex-col bg-canvas text-on-surface">
     <header class="sticky top-0 z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30">
-      <nav class="flex justify-between items-center px-margin-mobile sm:px-margin-desktop py-sm max-w-max-width mx-auto">
+      <nav class="flex justify-between items-center gap-md px-margin-mobile sm:px-margin-desktop py-sm max-w-max-width mx-auto">
         <NuxtLinkLocale :to="localePath('/')" class="flex items-center gap-xs shrink-0">
           <img src="/images/home/logo.jpg" alt="XO Edu Lab" class="h-9 w-9 rounded-lg object-cover" />
-          <span class="font-headline-sm text-headline-sm font-bold text-primary whitespace-nowrap">XO Edu Lab</span>
+          <span class="font-headline-sm text-lg font-bold text-primary whitespace-nowrap">XO Edu Lab</span>
         </NuxtLinkLocale>
 
-        <div class="hidden xl:flex gap-md items-center h-full">
-          <NuxtLinkLocale :to="localePath('/about')" class="text-on-surface-variant hover:text-secondary transition-colors font-body-md whitespace-nowrap">
+        <div class="hidden xl:flex gap-4 items-center h-full">
+          <NuxtLinkLocale :to="localePath('/about')" class="text-on-surface-variant hover:text-secondary transition-colors text-sm whitespace-nowrap">
             {{ t('nav.whyXo') }}
           </NuxtLinkLocale>
 
           <div class="relative mega-menu-trigger h-full flex items-center group">
-            <button type="button" class="flex items-center gap-1 text-on-surface-variant group-hover:text-secondary transition-colors font-body-md whitespace-nowrap">
+            <button type="button" class="flex items-center gap-1 text-on-surface-variant group-hover:text-secondary transition-colors text-sm whitespace-nowrap">
               {{ t('nav.solutions') }}
               <span class="material-symbols-outlined text-[20px] transition-transform group-hover:rotate-180">expand_more</span>
             </button>
@@ -105,7 +105,7 @@ const mobileMenuOpen = ref(false)
           </div>
 
           <div class="relative mega-menu-trigger h-full flex items-center group">
-            <button type="button" class="flex items-center gap-1 text-on-surface-variant group-hover:text-secondary transition-colors font-body-md whitespace-nowrap">
+            <button type="button" class="flex items-center gap-1 text-on-surface-variant group-hover:text-secondary transition-colors text-sm whitespace-nowrap">
               {{ t('nav.products') }}
               <span class="material-symbols-outlined text-[20px] transition-transform group-hover:rotate-180">expand_more</span>
             </button>
@@ -124,7 +124,7 @@ const mobileMenuOpen = ref(false)
           </div>
 
           <div v-if="audienceItems.length" class="relative mega-menu-trigger h-full flex items-center group">
-            <button type="button" class="flex items-center gap-1 text-on-surface-variant group-hover:text-secondary transition-colors font-body-md whitespace-nowrap">
+            <button type="button" class="flex items-center gap-1 text-on-surface-variant group-hover:text-secondary transition-colors text-sm whitespace-nowrap">
               {{ t('nav.whoWeHelp') }}
               <span class="material-symbols-outlined text-[20px] transition-transform group-hover:rotate-180">expand_more</span>
             </button>
@@ -139,25 +139,25 @@ const mobileMenuOpen = ref(false)
             </div>
           </div>
 
-          <NuxtLinkLocale :to="localePath('/research')" class="text-on-surface-variant hover:text-secondary transition-colors font-body-md whitespace-nowrap">
+          <NuxtLinkLocale :to="localePath('/research')" class="text-on-surface-variant hover:text-secondary transition-colors text-sm whitespace-nowrap">
             {{ t('nav.research') }}
           </NuxtLinkLocale>
-          <NuxtLinkLocale :to="localePath('/our-work')" class="text-on-surface-variant hover:text-secondary transition-colors font-body-md whitespace-nowrap">
+          <NuxtLinkLocale :to="localePath('/our-work')" class="text-on-surface-variant hover:text-secondary transition-colors text-sm whitespace-nowrap">
             {{ t('nav.ourWork') }}
           </NuxtLinkLocale>
-          <NuxtLinkLocale :to="localePath('/insights')" class="text-on-surface-variant hover:text-secondary transition-colors font-body-md whitespace-nowrap">
+          <NuxtLinkLocale :to="localePath('/insights')" class="text-on-surface-variant hover:text-secondary transition-colors text-sm whitespace-nowrap">
             {{ t('nav.insights') }}
           </NuxtLinkLocale>
         </div>
 
-        <div class="flex items-center gap-sm">
+        <div class="flex items-center gap-3">
           <NuxtLinkLocale :to="localePath('/search')" class="hidden sm:flex text-on-surface-variant hover:text-secondary" :aria-label="t('nav.search')">
             <span class="material-symbols-outlined">search</span>
           </NuxtLinkLocale>
           <LocaleSwitcher class="hidden sm:flex" />
           <NuxtLinkLocale
             :to="localePath('/contact')"
-            class="hidden sm:inline-block bg-secondary text-white px-md py-sm rounded-full font-label-md hover:opacity-90 transition-opacity whitespace-nowrap"
+            class="hidden sm:inline-block bg-secondary text-white px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity whitespace-nowrap"
           >
             {{ t('cta.buildWithXo') }}
           </NuxtLinkLocale>

@@ -72,7 +72,7 @@ useSeoMeta({
 <template>
   <div>
     <!-- Hero -->
-    <section class="relative py-xl lg:py-0 lg:min-h-[85vh] flex items-center overflow-hidden">
+    <section class="relative pt-xl pb-xl lg:pb-0 lg:min-h-[85vh] flex items-center overflow-hidden">
       <div class="relative z-10 max-w-max-width mx-auto px-margin-mobile sm:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-xl items-center">
         <div class="space-y-md">
           <span
@@ -103,13 +103,13 @@ useSeoMeta({
               {{ (hero?.extra as any).secondary_cta_label }}
             </NuxtLinkLocale>
           </div>
-          <div v-if="(hero?.extra as any)?.quote" class="pt-lg flex items-center gap-sm">
-            <div class="flex -space-x-3">
+          <div v-if="(hero?.extra as any)?.quote" class="pt-lg flex items-start gap-sm">
+            <div class="flex -space-x-3 shrink-0 pt-0.5">
               <img src="/images/home/hero-avatar-1.jpg" alt="" class="w-10 h-10 rounded-full border-2 border-white object-cover" />
               <img src="/images/home/hero-avatar-2.jpg" alt="" class="w-10 h-10 rounded-full border-2 border-white object-cover" />
               <img src="/images/home/hero-avatar-3.jpg" alt="" class="w-10 h-10 rounded-full border-2 border-white object-cover" />
             </div>
-            <p class="font-label-md text-on-surface-variant italic">"{{ (hero?.extra as any).quote }}"</p>
+            <p class="min-w-0 flex-1 font-label-md text-on-surface-variant italic leading-snug">"{{ (hero?.extra as any).quote }}"</p>
           </div>
         </div>
         <div class="hidden lg:block relative">
@@ -174,28 +174,26 @@ useSeoMeta({
       <div class="text-center mb-xl">
         <h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary">{{ journey.heading }}</h2>
       </div>
-      <div class="overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden -mx-margin-mobile px-margin-mobile sm:mx-0 sm:px-0">
-        <div class="flex flex-nowrap sm:justify-center gap-xs sm:gap-md items-center w-max sm:w-full sm:mx-auto">
-          <template v-for="(step, i) in ((journey.extra as any)?.steps as Step[] ?? [])" :key="step.n">
-            <div class="flex flex-col items-center gap-xs w-20 sm:w-28 shrink-0 text-center">
-              <div
-                class="w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center font-bold transition-all"
-                :class="i === ((journey.extra as any)?.steps.length - 1)
-                  ? 'bg-secondary text-white ring-4 ring-secondary/20'
-                  : 'bg-surface-container-high text-primary'"
-              >
-                {{ step.n }}
-              </div>
-              <span
-                class="font-label-md text-xs sm:text-sm"
-                :class="i === ((journey.extra as any)?.steps.length - 1) ? 'text-secondary font-bold' : 'text-on-surface-variant'"
-              >
-                {{ step.label }}
-              </span>
+      <div class="flex flex-wrap justify-center gap-x-4 sm:gap-x-6 gap-y-lg items-start">
+        <template v-for="(step, i) in ((journey.extra as any)?.steps as Step[] ?? [])" :key="step.n">
+          <div class="flex flex-col items-center gap-xs w-20 sm:w-24 text-center">
+            <div
+              class="w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center font-bold transition-all"
+              :class="i === ((journey.extra as any)?.steps.length - 1)
+                ? 'bg-secondary text-white ring-4 ring-secondary/20'
+                : 'bg-surface-container-high text-primary'"
+            >
+              {{ step.n }}
             </div>
-            <div v-if="i < ((journey.extra as any)?.steps.length - 1)" class="w-4 sm:w-8 h-px bg-outline-variant shrink-0" />
-          </template>
-        </div>
+            <span
+              class="font-label-md text-xs sm:text-sm"
+              :class="i === ((journey.extra as any)?.steps.length - 1) ? 'text-secondary font-bold' : 'text-on-surface-variant'"
+            >
+              {{ step.label }}
+            </span>
+          </div>
+          <div v-if="i < ((journey.extra as any)?.steps.length - 1)" class="hidden sm:block w-6 h-px bg-outline-variant mt-6 sm:mt-8" />
+        </template>
       </div>
     </section>
 
