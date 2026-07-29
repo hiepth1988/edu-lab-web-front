@@ -8,8 +8,16 @@ if (!data.value) {
 }
 
 useSeoMeta({
-  title: () => data.value?.data.name,
-  description: () => data.value?.data.role_summary ?? undefined,
+  title: () => data.value?.data.meta_title || data.value?.data.name,
+  description: () => data.value?.data.meta_description || data.value?.data.role_summary || undefined,
+  ogImage: () => data.value?.data.og_image || undefined,
+})
+
+useHead({
+  link: () =>
+    data.value?.data.canonical_url
+      ? [{ rel: 'canonical', href: data.value.data.canonical_url }]
+      : [],
 })
 </script>
 

@@ -10,6 +10,10 @@ export interface AudienceDetail extends AudienceSummary {
   pain_points: string | null
   how_we_help: string | null
   solutions: { slug: string; title: string; subheading: string | null }[]
+  meta_title: string | null
+  meta_description: string | null
+  og_image: string | null
+  canonical_url: string | null
 }
 
 export function useAudiencesList() {

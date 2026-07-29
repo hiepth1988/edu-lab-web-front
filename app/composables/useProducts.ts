@@ -9,6 +9,10 @@ export interface ProductSummary {
 export interface ProductDetail extends ProductSummary {
   description: string | null
   features: { title: string; description: string | null }[]
+  meta_title: string | null
+  meta_description: string | null
+  og_image: string | null
+  canonical_url: string | null
 }
 
 export function useProductsList() {

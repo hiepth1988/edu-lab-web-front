@@ -7,8 +7,16 @@ if (!data.value) {
 }
 
 useSeoMeta({
-  title: () => data.value?.data.title,
-  description: () => data.value?.data.excerpt ?? undefined,
+  title: () => data.value?.data.meta_title || data.value?.data.title,
+  description: () => data.value?.data.meta_description || data.value?.data.excerpt || undefined,
+  ogImage: () => data.value?.data.og_image || undefined,
+})
+
+useHead({
+  link: () =>
+    data.value?.data.canonical_url
+      ? [{ rel: 'canonical', href: data.value.data.canonical_url }]
+      : [],
 })
 </script>
 
@@ -20,8 +28,6 @@ useSeoMeta({
     <h1 class="mt-2 font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary">{{ data.data.title }}</h1>
     <p class="mt-md font-body-lg text-body-lg text-on-surface-variant">{{ data.data.excerpt }}</p>
 
-    <div class="mt-lg whitespace-pre-line font-body-md text-on-surface leading-relaxed">
-      {{ data.data.content }}
-    </div>
+    <div class="mt-lg prose max-w-none text-on-surface" v-html="data.data.content" />
   </article>
 </template>

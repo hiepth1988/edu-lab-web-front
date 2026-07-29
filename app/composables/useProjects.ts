@@ -12,6 +12,10 @@ export interface ProjectDetail extends ProjectSummary {
   result: string | null
   metrics: { value: string; label: string | null }[]
   section_images: { problem: string[]; solution: string[]; result: string[] }
+  meta_title: string | null
+  meta_description: string | null
+  og_image: string | null
+  canonical_url: string | null
 }
 
 export function useProjectsList() {
