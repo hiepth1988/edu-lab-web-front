@@ -4,9 +4,12 @@ export interface ProjectSummary {
   title: string
   excerpt: string | null
   featured_image: string | null
+  is_featured: boolean
+  category: { slug: string; name: string } | null
+  metrics: { value: string; label: string | null }[]
 }
 
-export interface ProjectDetail extends ProjectSummary {
+export interface ProjectDetail extends Omit<ProjectSummary, 'metrics'> {
   problem: string | null
   solution_text: string | null
   result: string | null
