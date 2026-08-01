@@ -98,5 +98,10 @@
     "result": "Result",
     "solution": "Solution",
     "atAGlance": "At a Glance"
+  },
+  "project": {
+    "relatedProjects": "Related Projects",
+    "galleryAll": "All",
+    "technicalNotes": "Technical Notes"
   }
 }

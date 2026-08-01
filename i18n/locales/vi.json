@@ -98,5 +98,10 @@
     "result": "Kết quả",
     "solution": "Giải pháp",
     "atAGlance": "Tổng quan nhanh"
+  },
+  "project": {
+    "relatedProjects": "Các dự án liên quan",
+    "galleryAll": "Tất cả",
+    "technicalNotes": "Ghi chú kỹ thuật"
   }
 }
