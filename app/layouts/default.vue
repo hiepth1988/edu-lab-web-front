@@ -81,25 +81,30 @@ const mobileMenuOpen = ref(false)
         </NuxtLinkLocale>
 
         <div class="hidden xl:flex gap-4 items-center h-full">
-          <NuxtLinkLocale :to="localePath('/about')" class="text-on-surface-variant hover:text-secondary transition-colors text-sm whitespace-nowrap">
-            {{ t('nav.whyXo') }}
-          </NuxtLinkLocale>
-
           <div class="relative mega-menu-trigger h-full flex items-center group">
             <button type="button" class="flex items-center gap-1 text-on-surface-variant group-hover:text-secondary transition-colors text-sm whitespace-nowrap">
               {{ t('nav.solutions') }}
               <span class="material-symbols-outlined text-[20px] transition-transform group-hover:rotate-180">expand_more</span>
             </button>
-            <div class="mega-menu z-50 absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[640px] bg-white border border-outline-variant/20 rounded-xl p-md shadow-xl grid grid-cols-3 gap-md">
-              <div v-for="group in solutionGroups" :key="group.heading">
-                <h5 class="text-secondary font-label-md uppercase tracking-wider mb-2">{{ group.heading }}</h5>
-                <ul class="space-y-1.5">
-                  <li v-for="item in group.items" :key="item.to">
-                    <NuxtLinkLocale :to="item.to" class="text-on-surface-variant hover:text-secondary text-sm leading-snug block py-1">
-                      {{ item.label }}
-                    </NuxtLinkLocale>
-                  </li>
-                </ul>
+            <div class="mega-menu z-50 absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[640px] bg-white border border-outline-variant/20 rounded-xl p-md shadow-xl">
+              <div class="grid grid-cols-3 gap-md">
+                <div v-for="group in solutionGroups" :key="group.heading">
+                  <h5 class="text-secondary font-label-md uppercase tracking-wider mb-2">{{ group.heading }}</h5>
+                  <ul class="space-y-1.5">
+                    <li v-for="item in group.items" :key="item.to">
+                      <NuxtLinkLocale :to="item.to" class="text-on-surface-variant hover:text-secondary text-sm leading-snug block py-1">
+                        {{ item.label }}
+                      </NuxtLinkLocale>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mt-md pt-md border-t border-outline-variant/20 flex items-center justify-between gap-md">
+                <span class="text-sm text-on-surface-variant">{{ t('navGroups.solutionsNotSure') }}</span>
+                <NuxtLinkLocale :to="localePath('/contact')" class="text-secondary hover:text-primary text-sm font-medium whitespace-nowrap flex items-center gap-1">
+                  {{ t('navGroups.solutionsNotSureCta') }}
+                  <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                </NuxtLinkLocale>
               </div>
             </div>
           </div>
@@ -123,6 +128,10 @@ const mobileMenuOpen = ref(false)
             </div>
           </div>
 
+          <NuxtLinkLocale :to="localePath('/our-work')" class="text-on-surface-variant hover:text-secondary transition-colors text-sm whitespace-nowrap">
+            {{ t('nav.ourWork') }}
+          </NuxtLinkLocale>
+
           <div v-if="audienceItems.length" class="relative mega-menu-trigger h-full flex items-center group">
             <button type="button" class="flex items-center gap-1 text-on-surface-variant group-hover:text-secondary transition-colors text-sm whitespace-nowrap">
               {{ t('nav.whoWeHelp') }}
@@ -139,12 +148,6 @@ const mobileMenuOpen = ref(false)
             </div>
           </div>
 
-          <NuxtLinkLocale :to="localePath('/research')" class="text-on-surface-variant hover:text-secondary transition-colors text-sm whitespace-nowrap">
-            {{ t('nav.research') }}
-          </NuxtLinkLocale>
-          <NuxtLinkLocale :to="localePath('/our-work')" class="text-on-surface-variant hover:text-secondary transition-colors text-sm whitespace-nowrap">
-            {{ t('nav.ourWork') }}
-          </NuxtLinkLocale>
           <NuxtLinkLocale :to="localePath('/insights')" class="text-on-surface-variant hover:text-secondary transition-colors text-sm whitespace-nowrap">
             {{ t('nav.insights') }}
           </NuxtLinkLocale>
@@ -173,8 +176,6 @@ const mobileMenuOpen = ref(false)
       </nav>
 
       <div v-if="mobileMenuOpen" class="xl:hidden border-t border-outline-variant/30 bg-surface px-margin-mobile py-md space-y-md max-h-[80vh] overflow-y-auto">
-        <NuxtLinkLocale :to="localePath('/about')" class="block font-body-md text-on-surface-variant" @click="mobileMenuOpen = false">{{ t('nav.whyXo') }}</NuxtLinkLocale>
-
         <div>
           <p class="font-label-sm uppercase tracking-wider text-outline mb-1">{{ t('nav.solutions') }}</p>
           <div v-for="group in solutionGroups" :key="group.heading" class="mb-2">
@@ -195,6 +196,8 @@ const mobileMenuOpen = ref(false)
           </div>
         </div>
 
+        <NuxtLinkLocale :to="localePath('/our-work')" class="block font-body-md text-on-surface-variant" @click="mobileMenuOpen = false">{{ t('nav.ourWork') }}</NuxtLinkLocale>
+
         <div v-if="audienceItems.length">
           <p class="font-label-sm uppercase tracking-wider text-outline mb-1">{{ t('nav.whoWeHelp') }}</p>
           <NuxtLinkLocale v-for="item in audienceItems" :key="item.to" :to="item.to" class="block py-1 text-sm text-on-surface-variant" @click="mobileMenuOpen = false">
@@ -202,9 +205,8 @@ const mobileMenuOpen = ref(false)
           </NuxtLinkLocale>
         </div>
 
-        <NuxtLinkLocale :to="localePath('/research')" class="block font-body-md text-on-surface-variant" @click="mobileMenuOpen = false">{{ t('nav.research') }}</NuxtLinkLocale>
-        <NuxtLinkLocale :to="localePath('/our-work')" class="block font-body-md text-on-surface-variant" @click="mobileMenuOpen = false">{{ t('nav.ourWork') }}</NuxtLinkLocale>
         <NuxtLinkLocale :to="localePath('/insights')" class="block font-body-md text-on-surface-variant" @click="mobileMenuOpen = false">{{ t('nav.insights') }}</NuxtLinkLocale>
+        <NuxtLinkLocale :to="localePath('/about')" class="block font-body-md text-on-surface-variant" @click="mobileMenuOpen = false">{{ t('nav.whyXo') }}</NuxtLinkLocale>
         <NuxtLinkLocale :to="localePath('/search')" class="block font-body-md text-on-surface-variant" @click="mobileMenuOpen = false">{{ t('nav.search') }}</NuxtLinkLocale>
 
         <div class="flex items-center justify-between pt-sm border-t border-outline-variant/20">
@@ -249,6 +251,7 @@ const mobileMenuOpen = ref(false)
             <li><NuxtLinkLocale :to="localePath('/who-we-help/independent-educators')" class="text-on-surface-variant hover:text-primary transition-all font-body-md">{{ t('footer.forEducators') }}</NuxtLinkLocale></li>
             <li><NuxtLinkLocale :to="localePath('/who-we-help/edtech-startups')" class="text-on-surface-variant hover:text-primary transition-all font-body-md">{{ t('footer.forEdtechTeams') }}</NuxtLinkLocale></li>
             <li><NuxtLinkLocale :to="localePath('/insights')" class="text-on-surface-variant hover:text-primary transition-all font-body-md">{{ t('nav.insights') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale :to="localePath('/research')" class="text-on-surface-variant hover:text-primary transition-all font-body-md">{{ t('nav.research') }}</NuxtLinkLocale></li>
           </ul>
         </div>
 

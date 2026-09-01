@@ -3,7 +3,7 @@
     "home": "Home",
     "whyXo": "Why XO",
     "solutions": "Solutions",
-    "products": "Products",
+    "products": "Products & Technology",
     "whoWeHelp": "Who We Help",
     "research": "Research",
     "ourWork": "Our Work",
@@ -17,6 +17,8 @@
     "solutionsImprove": "Improve",
     "solutionsOperate": "Operate",
     "solutionsCustomProduct": "Custom EdTech Product",
+    "solutionsNotSure": "Not sure where to start?",
+    "solutionsNotSureCta": "Explore solutions with XO",
     "productsLive": "Live Products",
     "productsCore": "Core Engines",
     "productsDev": "In Development"
