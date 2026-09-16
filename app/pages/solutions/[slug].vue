@@ -7,6 +7,28 @@ if (!data.value) {
   throw createError({ statusCode: 404, statusMessage: 'Solution not found' })
 }
 
+// Cross-link targets shown under architecture_note, per checklist items #3, #5, #6, #9.
+// Each solution slug maps to the related products/solutions it should link to.
+const crossLinks: Record<string, { label: string; to: string }[]> = {
+  'online-exam-platform': [
+    { label: 'Exam Engine', to: '/products/exam-engine' },
+    { label: 'Question Bank Engine', to: '/products/question-bank-engine' },
+  ],
+  'ai-education': [
+    { label: 'Adaptive Learning', to: '/solutions/adaptive-learning' },
+    { label: 'Learning Analytics', to: '/solutions/learning-analytics' },
+  ],
+  'adaptive-learning': [
+    { label: 'AI Education', to: '/solutions/ai-education' },
+  ],
+  'learning-analytics': [
+    { label: 'AI Education', to: '/solutions/ai-education' },
+    { label: 'Adaptive Learning', to: '/solutions/adaptive-learning' },
+  ],
+}
+
+const activeCrossLinks = computed(() => crossLinks[route.params.slug as string] ?? [])
+
 useSeoMeta({
   title: () => data.value?.data.meta_title || data.value?.data.title,
   description: () => data.value?.data.meta_description || data.value?.data.subheading || undefined,
@@ -44,9 +66,15 @@ useHead({
 
       <div v-if="data.data.architecture_note" class="bg-surface-container-low rounded-xl p-md space-y-sm">
         <p class="font-body-md text-sm text-on-surface-variant">{{ data.data.architecture_note }}</p>
-        <div v-if="route.params.slug === 'online-exam-platform'" class="flex flex-wrap gap-sm">
-          <NuxtLinkLocale to="/products/exam-engine" class="text-secondary text-sm font-medium hover:underline">Exam Engine →</NuxtLinkLocale>
-          <NuxtLinkLocale to="/products/question-bank-engine" class="text-secondary text-sm font-medium hover:underline">Question Bank Engine →</NuxtLinkLocale>
+        <div v-if="activeCrossLinks.length" class="flex flex-wrap gap-sm">
+          <NuxtLinkLocale
+            v-for="link in activeCrossLinks"
+            :key="link.to"
+            :to="link.to"
+            class="text-secondary text-sm font-medium hover:underline"
+          >
+            {{ link.label }} →
+          </NuxtLinkLocale>
         </div>
       </div>
 
