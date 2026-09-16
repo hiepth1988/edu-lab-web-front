@@ -80,7 +80,7 @@ useHead({
 
       <div v-if="data.data.features.length">
         <h2 class="font-headline-sm text-headline-sm text-primary mb-md">{{ t('detail.coreFeatures') }}</h2>
-        <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md">
+        <ul class="space-y-md">
           <li
             v-for="(feature, i) in data.data.features"
             :key="i"
