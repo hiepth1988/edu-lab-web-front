@@ -90,6 +90,16 @@ useHead({
             <p v-if="feature.description" class="mt-1 font-body-md text-sm text-on-surface-variant">
               {{ feature.description }}
             </p>
+            <ul v-if="feature.highlights?.length" class="mt-sm space-y-1.5">
+              <li
+                v-for="(point, hi) in feature.highlights"
+                :key="hi"
+                class="flex gap-2 font-body-md text-sm text-on-surface-variant"
+              >
+                <span class="flex-none mt-2 w-1 h-1 rounded-full bg-secondary" />
+                <span>{{ point }}</span>
+              </li>
+            </ul>
           </li>
         </ul>
       </div>

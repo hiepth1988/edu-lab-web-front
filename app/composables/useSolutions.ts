@@ -12,7 +12,7 @@ export interface SolutionDetail extends SolutionSummary {
   architecture_approach: { title: string; description: string | null }[]
   use_cases: { audience: string; description: string | null }[]
   trust_safety: { question: string; answer: string | null }[]
-  features: { title: string; description: string | null }[]
+  features: { title: string; description: string | null; highlights: string[] }[]
   faqs: { question: string; answer: string | null }[]
   meta_title: string | null
   meta_description: string | null
