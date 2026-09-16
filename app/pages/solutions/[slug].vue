@@ -94,6 +94,26 @@ useHead({
         </ul>
       </div>
 
+      <div v-if="data.data.architecture_approach">
+        <h2 class="font-headline-sm text-headline-sm text-primary">{{ t('detail.architectureApproach') }}</h2>
+        <p class="mt-sm font-body-md text-on-surface-variant whitespace-pre-line">{{ data.data.architecture_approach }}</p>
+      </div>
+
+      <div v-if="data.data.trust_safety.length">
+        <h2 class="font-headline-sm text-headline-sm text-primary mb-md">{{ t('detail.trustSafety') }}</h2>
+        <div class="space-y-md">
+          <div v-for="(item, i) in data.data.trust_safety" :key="i" class="bg-surface-container-low rounded-xl p-md">
+            <p class="font-headline-sm text-sm text-primary">{{ item.question }}</p>
+            <p v-if="item.answer" class="mt-1 font-body-md text-sm text-on-surface-variant">{{ item.answer }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div v-if="data.data.use_cases">
+        <h2 class="font-headline-sm text-headline-sm text-primary">{{ t('detail.useCases') }}</h2>
+        <p class="mt-sm font-body-md text-on-surface-variant whitespace-pre-line">{{ data.data.use_cases }}</p>
+      </div>
+
       <div v-if="data.data.faqs.length">
         <h2 class="font-headline-sm text-headline-sm text-primary mb-md">{{ t('detail.faq') }}</h2>
         <div class="space-y-md">
