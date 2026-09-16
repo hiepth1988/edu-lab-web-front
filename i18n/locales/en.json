@@ -20,7 +20,7 @@
     "solutionsNotSure": "Not sure where to start?",
     "solutionsNotSureCta": "Explore solutions with XO",
     "productsLive": "Live Products",
-    "productsCore": "Core Engines",
+    "productsCore": "Core Capabilities",
     "productsDev": "In Development"
   },
   "cta": {
@@ -89,7 +89,9 @@
     }
   },
   "insights": {
-    "empty": "No posts published yet."
+    "empty": "No posts published yet.",
+    "tabPosts": "Posts",
+    "tabResearch": "Research"
   },
   "detail": {
     "problem": "Problem",
@@ -104,6 +106,7 @@
   "project": {
     "relatedProjects": "Related Projects",
     "galleryAll": "All",
-    "technicalNotes": "Technical Notes"
+    "technicalNotes": "Technical Notes",
+    "poweredBy": "Powered by:"
   }
 }

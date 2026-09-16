@@ -43,10 +43,12 @@ const solutionGroups = computed(() => [
 const productGroups = computed(() => [
   {
     heading: t('navGroups.productsLive'),
+    // TopThi points to its Our Work case study (same slug), not a /products page —
+    // the product story lives there; see checklist item #2 (cross-link TopThi).
     items: (['topthi'] as const)
       .map((slug) => findProduct(slug))
       .filter((p): p is NonNullable<typeof p> => !!p)
-      .map((p) => ({ label: p.name, to: `/products/${p.slug}` })),
+      .map((p) => ({ label: p.name, to: `/our-work/${p.slug}` })),
   },
   {
     heading: t('navGroups.productsCore'),
@@ -109,6 +111,10 @@ const mobileMenuOpen = ref(false)
             </div>
           </div>
 
+          <NuxtLinkLocale :to="localePath('/our-work')" class="text-on-surface-variant hover:text-secondary transition-colors text-sm whitespace-nowrap">
+            {{ t('nav.ourWork') }}
+          </NuxtLinkLocale>
+
           <div class="relative mega-menu-trigger h-full flex items-center group">
             <button type="button" class="flex items-center gap-1 text-on-surface-variant group-hover:text-secondary transition-colors text-sm whitespace-nowrap">
               {{ t('nav.products') }}
@@ -127,10 +133,6 @@ const mobileMenuOpen = ref(false)
               </div>
             </div>
           </div>
-
-          <NuxtLinkLocale :to="localePath('/our-work')" class="text-on-surface-variant hover:text-secondary transition-colors text-sm whitespace-nowrap">
-            {{ t('nav.ourWork') }}
-          </NuxtLinkLocale>
 
           <div v-if="audienceItems.length" class="relative mega-menu-trigger h-full flex items-center group">
             <button type="button" class="flex items-center gap-1 text-on-surface-variant group-hover:text-secondary transition-colors text-sm whitespace-nowrap">
@@ -186,6 +188,8 @@ const mobileMenuOpen = ref(false)
           </div>
         </div>
 
+        <NuxtLinkLocale :to="localePath('/our-work')" class="block font-body-md text-on-surface-variant" @click="mobileMenuOpen = false">{{ t('nav.ourWork') }}</NuxtLinkLocale>
+
         <div>
           <p class="font-label-sm uppercase tracking-wider text-outline mb-1">{{ t('nav.products') }}</p>
           <div v-for="group in productGroups" :key="group.heading" class="mb-2">
@@ -195,8 +199,6 @@ const mobileMenuOpen = ref(false)
             </NuxtLinkLocale>
           </div>
         </div>
-
-        <NuxtLinkLocale :to="localePath('/our-work')" class="block font-body-md text-on-surface-variant" @click="mobileMenuOpen = false">{{ t('nav.ourWork') }}</NuxtLinkLocale>
 
         <div v-if="audienceItems.length">
           <p class="font-label-sm uppercase tracking-wider text-outline mb-1">{{ t('nav.whoWeHelp') }}</p>

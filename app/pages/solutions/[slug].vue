@@ -42,6 +42,14 @@ useHead({
         <p class="mt-sm font-body-md text-on-surface-variant">{{ data.data.solution_overview }}</p>
       </div>
 
+      <div v-if="data.data.architecture_note" class="bg-surface-container-low rounded-xl p-md space-y-sm">
+        <p class="font-body-md text-sm text-on-surface-variant">{{ data.data.architecture_note }}</p>
+        <div v-if="route.params.slug === 'online-exam-platform'" class="flex flex-wrap gap-sm">
+          <NuxtLinkLocale to="/products/exam-engine" class="text-secondary text-sm font-medium hover:underline">Exam Engine →</NuxtLinkLocale>
+          <NuxtLinkLocale to="/products/question-bank-engine" class="text-secondary text-sm font-medium hover:underline">Question Bank Engine →</NuxtLinkLocale>
+        </div>
+      </div>
+
       <div v-if="data.data.features.length">
         <h2 class="font-headline-sm text-headline-sm text-primary mb-md">{{ t('detail.coreFeatures') }}</h2>
         <ul class="grid grid-cols-1 sm:grid-cols-2 gap-md">

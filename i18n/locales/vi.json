@@ -20,7 +20,7 @@
     "solutionsNotSure": "Chưa biết bắt đầu từ đâu?",
     "solutionsNotSureCta": "Khám phá giải pháp cùng XO",
     "productsLive": "Sản phẩm đang vận hành",
-    "productsCore": "Core Engines",
+    "productsCore": "Năng lực lõi",
     "productsDev": "Đang phát triển"
   },
   "cta": {
@@ -89,7 +89,9 @@
     }
   },
   "insights": {
-    "empty": "Chưa có bài viết nào được xuất bản."
+    "empty": "Chưa có bài viết nào được xuất bản.",
+    "tabPosts": "Bài viết",
+    "tabResearch": "Research"
   },
   "detail": {
     "problem": "Vấn đề",
@@ -104,6 +106,7 @@
   "project": {
     "relatedProjects": "Các dự án liên quan",
     "galleryAll": "Tất cả",
-    "technicalNotes": "Ghi chú kỹ thuật"
+    "technicalNotes": "Ghi chú kỹ thuật",
+    "poweredBy": "Công nghệ đứng sau:"
   }
 }
