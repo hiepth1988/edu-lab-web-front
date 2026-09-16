@@ -268,15 +268,15 @@ const filteredGalleryImages = computed(() => {
           </div>
         </div>
       </div>
-
-      <!-- Cross-link to Core Engines products (checklist #2) -->
-      <div v-if="route.params.slug === 'topthi'" class="max-w-max-width mx-auto px-margin-mobile sm:px-margin-desktop mt-lg pt-lg border-t border-outline-variant/20 flex flex-wrap items-center gap-sm text-sm">
-        <span class="text-on-surface-variant">{{ t('project.poweredBy') }}</span>
-        <NuxtLinkLocale to="/products/exam-engine" class="text-secondary font-medium hover:underline">Exam Engine</NuxtLinkLocale>
-        <span class="text-outline-variant">·</span>
-        <NuxtLinkLocale to="/products/learning-analytics-platform" class="text-secondary font-medium hover:underline">Learning Analytics</NuxtLinkLocale>
-      </div>
     </section>
+
+    <!-- Cross-link to Core Engines products (checklist #2) — independent of tech_stack_groups -->
+    <div v-if="route.params.slug === 'topthi'" class="max-w-max-width mx-auto px-margin-mobile sm:px-margin-desktop py-lg flex flex-wrap items-center gap-sm text-sm border-t border-outline-variant/20">
+      <span class="text-on-surface-variant">{{ t('project.poweredBy') }}</span>
+      <NuxtLinkLocale to="/products/exam-engine" class="text-secondary font-medium hover:underline">Exam Engine</NuxtLinkLocale>
+      <span class="text-outline-variant">·</span>
+      <NuxtLinkLocale to="/products/learning-analytics-platform" class="text-secondary font-medium hover:underline">Learning Analytics</NuxtLinkLocale>
+    </div>
 
     <!-- Results & Impact -->
     <section v-if="data.data.results.length" class="py-xl max-w-max-width mx-auto px-margin-mobile sm:px-margin-desktop">
