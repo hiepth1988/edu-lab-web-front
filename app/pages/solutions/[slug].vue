@@ -80,7 +80,7 @@ useHead({
 
       <div v-if="data.data.features.length">
         <h2 class="font-headline-sm text-headline-sm text-primary mb-md">{{ t('detail.coreFeatures') }}</h2>
-        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+        <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md">
           <li
             v-for="(feature, i) in data.data.features"
             :key="i"
@@ -94,24 +94,45 @@ useHead({
         </ul>
       </div>
 
-      <div v-if="data.data.architecture_approach">
-        <h2 class="font-headline-sm text-headline-sm text-primary">{{ t('detail.architectureApproach') }}</h2>
-        <p class="mt-sm font-body-md text-on-surface-variant whitespace-pre-line">{{ data.data.architecture_approach }}</p>
+      <div v-if="data.data.architecture_approach.length">
+        <h2 class="font-headline-sm text-headline-sm text-primary mb-md">{{ t('detail.architectureApproach') }}</h2>
+        <ul class="space-y-md">
+          <li
+            v-for="(item, i) in data.data.architecture_approach"
+            :key="i"
+            class="flex gap-sm"
+          >
+            <span class="flex-none w-7 h-7 rounded-full bg-primary/10 text-primary font-headline-sm text-sm flex items-center justify-center">{{ i + 1 }}</span>
+            <div>
+              <p class="font-headline-sm text-sm text-primary">{{ item.title }}</p>
+              <p v-if="item.description" class="mt-1 font-body-md text-sm text-on-surface-variant">{{ item.description }}</p>
+            </div>
+          </li>
+        </ul>
       </div>
 
       <div v-if="data.data.trust_safety.length">
         <h2 class="font-headline-sm text-headline-sm text-primary mb-md">{{ t('detail.trustSafety') }}</h2>
         <div class="space-y-md">
-          <div v-for="(item, i) in data.data.trust_safety" :key="i" class="bg-surface-container-low rounded-xl p-md">
+          <div v-for="(item, i) in data.data.trust_safety" :key="i" class="bg-white premium-border border-l-4 border-l-secondary rounded-xl p-md">
             <p class="font-headline-sm text-sm text-primary">{{ item.question }}</p>
             <p v-if="item.answer" class="mt-1 font-body-md text-sm text-on-surface-variant">{{ item.answer }}</p>
           </div>
         </div>
       </div>
 
-      <div v-if="data.data.use_cases">
-        <h2 class="font-headline-sm text-headline-sm text-primary">{{ t('detail.useCases') }}</h2>
-        <p class="mt-sm font-body-md text-on-surface-variant whitespace-pre-line">{{ data.data.use_cases }}</p>
+      <div v-if="data.data.use_cases.length">
+        <h2 class="font-headline-sm text-headline-sm text-primary mb-md">{{ t('detail.useCases') }}</h2>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+          <li
+            v-for="(item, i) in data.data.use_cases"
+            :key="i"
+            class="bg-white rounded-xl premium-border p-md"
+          >
+            <p class="font-headline-sm text-sm text-primary">{{ item.audience }}</p>
+            <p v-if="item.description" class="mt-1 font-body-md text-sm text-on-surface-variant">{{ item.description }}</p>
+          </li>
+        </ul>
       </div>
 
       <div v-if="data.data.faqs.length">

@@ -9,8 +9,8 @@ export interface SolutionDetail extends SolutionSummary {
   problem: string | null
   solution_overview: string | null
   architecture_note: string | null
-  architecture_approach: string | null
-  use_cases: string | null
+  architecture_approach: { title: string; description: string | null }[]
+  use_cases: { audience: string; description: string | null }[]
   trust_safety: { question: string; answer: string | null }[]
   features: { title: string; description: string | null }[]
   faqs: { question: string; answer: string | null }[]
