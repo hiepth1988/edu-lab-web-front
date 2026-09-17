@@ -14,6 +14,8 @@ export interface SolutionDetail extends SolutionSummary {
   trust_safety: { question: string; answer: string | null }[]
   features: { title: string; description: string | null; highlights: string[] }[]
   faqs: { question: string; answer: string | null }[]
+  related_products: { slug: string; name: string | null; role_summary: string | null }[]
+  related_insights: { slug: string; title: string | null; excerpt: string | null }[]
   meta_title: string | null
   meta_description: string | null
   og_image: string | null

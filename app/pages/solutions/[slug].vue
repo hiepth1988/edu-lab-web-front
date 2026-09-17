@@ -22,6 +22,7 @@ const crossLinks: Record<string, { label: string; to: string }[]> = {
     { label: 'AI Education', to: '/solutions/ai-education' },
   ],
   'learning-analytics': [
+    { label: 'Learning Analytics Platform', to: '/products/learning-analytics-platform' },
     { label: 'AI Education', to: '/solutions/ai-education' },
     { label: 'Adaptive Learning', to: '/solutions/adaptive-learning' },
   ],
@@ -143,6 +144,36 @@ useHead({
             <p v-if="item.description" class="mt-1 font-body-md text-sm text-on-surface-variant">{{ item.description }}</p>
           </li>
         </ul>
+      </div>
+
+      <div v-if="data.data.related_products.length">
+        <h2 class="font-headline-sm text-headline-sm text-primary mb-md">{{ t('detail.relatedProducts') }}</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-md">
+          <NuxtLinkLocale
+            v-for="related in data.data.related_products"
+            :key="related.slug"
+            :to="`/products/${related.slug}`"
+            class="group block bg-white rounded-xl premium-border p-md hover-lift"
+          >
+            <p class="font-headline-sm text-sm text-primary group-hover:text-secondary transition-colors">{{ related.name }}</p>
+            <p v-if="related.role_summary" class="mt-1 text-xs text-on-surface-variant">{{ related.role_summary }}</p>
+          </NuxtLinkLocale>
+        </div>
+      </div>
+
+      <div v-if="data.data.related_insights.length">
+        <h2 class="font-headline-sm text-headline-sm text-primary mb-md">{{ t('detail.relatedInsights') }}</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-md">
+          <NuxtLinkLocale
+            v-for="related in data.data.related_insights"
+            :key="related.slug"
+            :to="`/insights/${related.slug}`"
+            class="group block bg-white rounded-xl premium-border p-md hover-lift"
+          >
+            <p class="font-headline-sm text-sm text-primary group-hover:text-secondary transition-colors">{{ related.title }}</p>
+            <p v-if="related.excerpt" class="mt-1 text-xs text-on-surface-variant">{{ related.excerpt }}</p>
+          </NuxtLinkLocale>
+        </div>
       </div>
 
       <div v-if="data.data.faqs.length">
