@@ -21,7 +21,7 @@
     "solutionsNotSureCta": "Explore solutions with XO",
     "productsLive": "Live Products",
     "productsCore": "Core Capabilities",
-    "productsDev": "In Development"
+    "productsPilot": "Piloting at TopThi"
   },
   "cta": {
     "bookConsultation": "Book a consultation",
@@ -111,6 +111,7 @@
     "relatedProjects": "Related Projects",
     "galleryAll": "All",
     "technicalNotes": "Technical Notes",
-    "poweredBy": "Powered by:"
+    "poweredBy": "Powered by:",
+    "inPractice": "In practice"
   }
 }

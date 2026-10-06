@@ -21,7 +21,7 @@
     "solutionsNotSureCta": "Khám phá giải pháp cùng XO",
     "productsLive": "Sản phẩm đang vận hành",
     "productsCore": "Năng lực lõi",
-    "productsDev": "Đang phát triển"
+    "productsPilot": "Đang vận hành thử nghiệm tại TopThi"
   },
   "cta": {
     "bookConsultation": "Đặt lịch tư vấn",
@@ -111,6 +111,7 @@
     "relatedProjects": "Các dự án liên quan",
     "galleryAll": "Tất cả",
     "technicalNotes": "Ghi chú kỹ thuật",
-    "poweredBy": "Công nghệ đứng sau:"
+    "poweredBy": "Công nghệ đứng sau:",
+    "inPractice": "Áp dụng thực tế"
   }
 }

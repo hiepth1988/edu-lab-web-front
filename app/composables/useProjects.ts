@@ -44,6 +44,14 @@ export interface JourneyStep {
   description: string | null
 }
 
+export interface ScienceCard {
+  icon: string | null
+  title: string | null
+  source: string | null
+  idea: string | null
+  in_practice: string | null
+}
+
 export interface GalleryCategory {
   key: string | null
   label: string | null
@@ -109,6 +117,12 @@ export interface ProjectDetail extends Omit<ProjectSummary, 'metrics'> {
 
   journey_heading: string | null
   journey_steps: JourneyStep[]
+  journey_note: string | null
+
+  science_heading: string | null
+  science_description: string | null
+  science_cards: ScienceCard[]
+  science_note: string | null
 
   solution_modules: SolutionModule[]
 

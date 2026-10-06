@@ -58,7 +58,9 @@ const productGroups = computed(() => [
       .map((p) => ({ label: p.name, to: `/products/${p.slug}` })),
   },
   {
-    heading: t('navGroups.productsDev'),
+    // Both engines run in production at TopThi since 2026-09-30
+    // (docs/edulab_topthi_page_update.md, mục 1) — no longer "in development".
+    heading: t('navGroups.productsPilot'),
     items: (['ai-learning-engine', 'knowledge-graph-engine'] as const)
       .map((slug) => findProduct(slug))
       .filter((p): p is NonNullable<typeof p> => !!p)

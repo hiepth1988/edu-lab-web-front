@@ -65,7 +65,7 @@ const filteredGalleryImages = computed(() => {
               :key="i"
               class="inline-flex items-center gap-1.5 bg-surface-container px-sm py-1.5 rounded-full text-primary font-label-md text-xs"
             >
-              <span v-if="badge.icon" class="material-symbols-outlined text-[16px]">{{ badge.icon }}</span>
+              <span v-if="badge.icon" aria-hidden="true" class="material-symbols-outlined text-[16px]">{{ badge.icon }}</span>
               {{ badge.label }}
             </span>
           </div>
@@ -96,7 +96,7 @@ const filteredGalleryImages = computed(() => {
     <section v-if="data.data.snapshot_items.length" class="bg-surface-container-low py-lg">
       <div class="max-w-max-width mx-auto px-margin-mobile sm:px-margin-desktop grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-md">
         <div v-for="(item, i) in data.data.snapshot_items" :key="i" class="bg-white p-md rounded-xl premium-border space-y-xs">
-          <span v-if="item.icon" class="material-symbols-outlined text-secondary">{{ item.icon }}</span>
+          <span v-if="item.icon" aria-hidden="true" class="material-symbols-outlined text-secondary">{{ item.icon }}</span>
           <div class="text-xs text-on-surface-variant uppercase tracking-tighter">{{ item.label }}</div>
           <div class="font-label-md text-sm font-bold text-primary">{{ item.value }}</div>
         </div>
@@ -132,7 +132,7 @@ const filteredGalleryImages = computed(() => {
             :class="challenge.wide ? 'lg:col-span-2' : ''"
           >
             <div class="w-12 h-12 rounded-full flex items-center justify-center" :class="colorCircleClass(challenge.color)">
-              <span v-if="challenge.icon" class="material-symbols-outlined">{{ challenge.icon }}</span>
+              <span v-if="challenge.icon" aria-hidden="true" class="material-symbols-outlined">{{ challenge.icon }}</span>
             </div>
             <h3 class="font-headline-sm text-primary">{{ challenge.title }}</h3>
             <p class="font-body-md text-sm text-on-surface-variant">{{ challenge.description }}</p>
@@ -149,7 +149,7 @@ const filteredGalleryImages = computed(() => {
           <h4 class="font-label-md text-sm font-bold text-secondary mb-sm">{{ group.title }}</h4>
           <ul class="space-y-xs text-xs text-on-surface-variant">
             <li v-for="(feature, fi) in group.features" :key="fi" class="flex items-center gap-xs">
-              <span class="material-symbols-outlined text-[14px] text-secondary">check_circle</span>
+              <span aria-hidden="true" class="material-symbols-outlined text-[14px] text-secondary">check_circle</span>
               {{ feature }}
             </li>
           </ul>
@@ -169,6 +169,39 @@ const filteredGalleryImages = computed(() => {
             <div class="text-[11px] text-on-surface-variant max-w-[130px]">{{ step.description }}</div>
           </div>
         </div>
+        <p v-if="data.data.journey_note" class="mt-lg flex items-center justify-center gap-xs text-sm text-on-surface-variant">
+          <span aria-hidden="true" class="material-symbols-outlined text-secondary text-[20px]">replay</span>
+          {{ data.data.journey_note }}
+        </p>
+      </div>
+    </section>
+
+    <!-- The Science Behind -->
+    <section v-if="data.data.science_cards?.length" class="py-xl bg-surface-container-low">
+      <div class="max-w-max-width mx-auto px-margin-mobile sm:px-margin-desktop">
+        <div v-if="data.data.science_heading || data.data.science_description" class="text-center mb-xl max-w-3xl mx-auto">
+          <h2 v-if="data.data.science_heading" class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary mb-xs">{{ data.data.science_heading }}</h2>
+          <p v-if="data.data.science_description" class="font-body-md text-on-surface-variant">{{ data.data.science_description }}</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+          <div v-for="(card, i) in data.data.science_cards" :key="i" class="bg-white p-lg rounded-2xl premium-border flex flex-col gap-sm">
+            <div class="flex items-start gap-sm">
+              <div class="w-10 h-10 shrink-0 rounded-full flex items-center justify-center bg-primary/10 text-primary">
+                <span v-if="card.icon" aria-hidden="true" class="material-symbols-outlined text-[20px]">{{ card.icon }}</span>
+              </div>
+              <div>
+                <h3 class="font-label-md text-base font-bold text-primary">{{ card.title }}</h3>
+                <div v-if="card.source" class="text-xs italic text-outline">{{ card.source }}</div>
+              </div>
+            </div>
+            <p v-if="card.idea" class="font-body-md text-sm text-on-surface-variant">{{ card.idea }}</p>
+            <div v-if="card.in_practice" class="mt-auto pt-sm border-t border-outline-variant/40 text-sm">
+              <div class="text-[10px] font-bold uppercase tracking-wider text-secondary mb-1">{{ t('project.inPractice') }}</div>
+              <p class="text-on-surface">{{ card.in_practice }}</p>
+            </div>
+          </div>
+        </div>
+        <p v-if="data.data.science_note" class="mt-xl text-center font-headline-sm text-base italic text-primary max-w-2xl mx-auto">{{ data.data.science_note }}</p>
       </div>
     </section>
 
@@ -184,14 +217,14 @@ const filteredGalleryImages = computed(() => {
           <p class="font-body-md text-on-surface-variant">{{ module.description }}</p>
           <ul v-if="module.features.length" class="space-y-xs pt-base">
             <li v-for="(feature, fi) in module.features" :key="fi" class="flex items-center gap-sm font-body-md text-sm">
-              <span class="material-symbols-outlined text-secondary">check_circle</span>
+              <span aria-hidden="true" class="material-symbols-outlined text-secondary">check_circle</span>
               {{ feature }}
             </li>
           </ul>
           <details v-if="module.technical_note" class="group premium-border rounded-xl p-md bg-surface-container-low">
             <summary class="list-none flex justify-between items-center cursor-pointer font-label-md text-sm font-bold text-primary">
               <span>{{ t('project.technicalNotes') }}</span>
-              <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+              <span aria-hidden="true" class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
             </summary>
             <div class="pt-sm text-xs text-on-surface-variant">{{ module.technical_note }}</div>
           </details>
@@ -248,11 +281,11 @@ const filteredGalleryImages = computed(() => {
         <div class="flex flex-col md:flex-row items-center justify-between min-w-[800px] gap-sm">
           <template v-for="(layer, i) in data.data.architecture_layers" :key="i">
             <div class="flex flex-col items-center gap-xs p-md premium-border rounded-xl w-40 bg-surface-container-low">
-              <span v-if="layer.icon" class="material-symbols-outlined text-secondary">{{ layer.icon }}</span>
+              <span v-if="layer.icon" aria-hidden="true" class="material-symbols-outlined text-secondary">{{ layer.icon }}</span>
               <div class="font-label-md text-sm font-bold text-primary">{{ layer.title }}</div>
               <div class="text-[10px] text-on-surface-variant">{{ layer.subtitle }}</div>
             </div>
-            <span v-if="i < data.data.architecture_layers.length - 1" class="material-symbols-outlined text-outline">arrow_forward</span>
+            <span v-if="i < data.data.architecture_layers.length - 1" aria-hidden="true" class="material-symbols-outlined text-outline">arrow_forward</span>
           </template>
         </div>
       </div>
@@ -283,7 +316,7 @@ const filteredGalleryImages = computed(() => {
       <h2 v-if="data.data.results_heading" class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary mb-lg text-center">{{ data.data.results_heading }}</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
         <div v-for="(result, i) in data.data.results" :key="i" class="p-lg rounded-2xl flex flex-col justify-between h-48" :class="resultCardClass(result.color)">
-          <span v-if="result.icon" class="material-symbols-outlined text-[40px]">{{ result.icon }}</span>
+          <span v-if="result.icon" aria-hidden="true" class="material-symbols-outlined text-[40px]">{{ result.icon }}</span>
           <div>
             <div class="font-display-lg text-headline-lg leading-none">{{ result.value }}</div>
             <div class="font-label-md text-sm opacity-80">{{ result.label }}</div>
@@ -295,7 +328,7 @@ const filteredGalleryImages = computed(() => {
     <!-- Lessons Learned -->
     <section v-if="data.data.lessons_quote" class="py-xl max-w-4xl mx-auto px-margin-mobile">
       <div class="bg-surface-container-high p-xl rounded-[40px] text-center relative overflow-hidden">
-        <span class="material-symbols-outlined text-secondary text-[48px] mb-md">format_quote</span>
+        <span aria-hidden="true" class="material-symbols-outlined text-secondary text-[48px] mb-md">format_quote</span>
         <blockquote class="font-headline-md text-headline-md italic text-primary mb-lg">"{{ data.data.lessons_quote }}"</blockquote>
         <cite v-if="data.data.lessons_citation" class="font-label-md text-sm font-bold text-secondary not-italic">{{ data.data.lessons_citation }}</cite>
       </div>
