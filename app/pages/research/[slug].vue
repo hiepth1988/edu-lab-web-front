@@ -6,11 +6,14 @@ if (!data.value) {
   throw createError({ statusCode: 404, statusMessage: 'Research post not found' })
 }
 
-useSeoMeta({
+usePageSeo({
   title: () => data.value?.data.meta_title || data.value?.data.title,
   description: () => data.value?.data.meta_description || data.value?.data.excerpt || undefined,
-  ogImage: () => data.value?.data.og_image || undefined,
+  image: () => data.value?.data.og_image || undefined,
+  type: 'article',
 })
+
+useLocalizedSlugs(() => data.value?.data.alternate_slugs)
 
 useHead({
   link: () =>

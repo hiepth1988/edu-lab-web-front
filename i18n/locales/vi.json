@@ -113,5 +113,20 @@
     "technicalNotes": "Ghi chú kỹ thuật",
     "poweredBy": "Công nghệ đứng sau:",
     "inPractice": "Áp dụng thực tế"
+  },
+  "seo": {
+    "siteDescription": "XO Edu Lab thiết kế và xây dựng nền tảng giáo dục số: LMS, hệ thống thi trực tuyến, AI trong giáo dục và phân tích dữ liệu học tập cho trường học, trung tâm đào tạo và EdTech.",
+    "solutionsTitle": "Giải pháp công nghệ giáo dục",
+    "solutionsDescription": "Giải pháp EdTech của XO Edu Lab: LMS, nền tảng thi trực tuyến, AI trong giáo dục, phân tích dữ liệu học tập, học tập thích ứng và quản lý trường học.",
+    "productsTitle": "Sản phẩm & Công nghệ",
+    "productsDescription": "Các sản phẩm và engine công nghệ của XO Edu Lab: Exam Engine, Question Bank Engine, Learning Analytics, AI Learning Engine và Knowledge Graph Engine.",
+    "ourWorkTitle": "Dự án tiêu biểu",
+    "ourWorkDescription": "Case study các nền tảng giáo dục số XO Edu Lab đã xây dựng: LMS, hệ thống thi, ứng dụng học tập cho trường học, trung tâm đào tạo và doanh nghiệp.",
+    "whoWeHelpTitle": "Đối tượng chúng tôi hỗ trợ",
+    "whoWeHelpDescription": "XO Edu Lab đồng hành cùng giáo viên độc lập, trung tâm đào tạo, trường học, startup EdTech và doanh nghiệp xây dựng sản phẩm giáo dục số.",
+    "insightsTitle": "Insights về EdTech",
+    "insightsDescription": "Bài viết, phân tích và kinh nghiệm thực tế về xây dựng LMS, nền tảng thi trực tuyến, AI và dữ liệu học tập từ đội ngũ XO Edu Lab.",
+    "researchTitle": "Nghiên cứu",
+    "researchDescription": "Nghiên cứu của XO Edu Lab về khoa học học tập, đánh giá, AI và dữ liệu giáo dục ứng dụng vào sản phẩm thực tế."
   }
 }

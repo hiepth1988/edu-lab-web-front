@@ -63,9 +63,10 @@ const finalCta = section('final_cta')
 const { data: postsData } = await usePostsList({ page: 1 })
 const latestPosts = computed(() => postsData.value?.data.slice(0, 3) ?? [])
 
-useSeoMeta({
-  title: () => data.value?.translation.meta_title ?? data.value?.translation.title,
-  description: () => data.value?.translation.meta_description ?? undefined,
+usePageSeo({
+  title: () => data.value?.translation.meta_title || data.value?.translation.title,
+  description: () => data.value?.translation.meta_description || data.value?.translation.excerpt,
+  image: () => data.value?.translation.og_image,
 })
 </script>
 

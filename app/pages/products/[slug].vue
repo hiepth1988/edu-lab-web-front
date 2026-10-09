@@ -7,11 +7,13 @@ if (!data.value) {
   throw createError({ statusCode: 404, statusMessage: 'Product not found' })
 }
 
-useSeoMeta({
+usePageSeo({
   title: () => data.value?.data.meta_title || data.value?.data.name,
   description: () => data.value?.data.meta_description || data.value?.data.role_summary || undefined,
-  ogImage: () => data.value?.data.og_image || undefined,
+  image: () => data.value?.data.og_image || undefined,
 })
+
+useLocalizedSlugs(() => data.value?.data.alternate_slugs)
 
 useHead({
   link: () =>

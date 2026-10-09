@@ -1,6 +1,6 @@
 export default defineEventHandler((event) => {
   const config = useRuntimeConfig()
-  const siteUrl = config.public.siteUrl || 'http://localhost:3000'
+  const siteUrl = (config.public.siteUrl || 'http://localhost:3000').replace(/\/$/, '')
 
   setHeader(event, 'Content-Type', 'text/plain')
 

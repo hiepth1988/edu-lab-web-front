@@ -14,6 +14,7 @@ const is404 = computed(() => props.error.statusCode === 404)
 
 useSeoMeta({
   title: () => (is404.value ? messages.value.errorPage.title404 : messages.value.errorPage.titleGeneric),
+  robots: 'noindex, follow',
 })
 
 function handleBackHome() {

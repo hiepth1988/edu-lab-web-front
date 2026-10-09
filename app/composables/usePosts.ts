@@ -46,7 +46,7 @@ export function usePostDetail(slug: string) {
   const { locale } = useI18n()
   const { request } = useApi()
 
-  return useAsyncData<{ data: PostSummary & { content: string | null; related_posts: RelatedPost[] } }>(
+  return useAsyncData<{ data: PostSummary & { content: string | null; related_posts: RelatedPost[]; alternate_slugs?: Record<string, string> } }>(
     `post-${slug}-${locale.value}`,
     () => request(`/posts/${slug}`),
     { watch: [locale] },

@@ -1,9 +1,10 @@
 <script setup lang="ts">
 const { data } = await usePageContent('privacy')
 
-useSeoMeta({
-  title: () => data.value?.translation.meta_title ?? data.value?.translation.title,
-  description: () => data.value?.translation.meta_description ?? undefined,
+usePageSeo({
+  title: () => data.value?.translation.meta_title || data.value?.translation.title,
+  description: () => data.value?.translation.meta_description || data.value?.translation.excerpt,
+  image: () => data.value?.translation.og_image,
 })
 </script>
 

@@ -2,7 +2,7 @@
 const { t } = useI18n()
 const { data } = await useProjectsList()
 
-useSeoMeta({ title: t('nav.ourWork') })
+usePageSeo({ title: () => t('seo.ourWorkTitle'), description: () => t('seo.ourWorkDescription') })
 
 const featured = computed(() => (data.value?.data ?? []).filter((p) => p.is_featured))
 const rest = computed(() => (data.value?.data ?? []).filter((p) => !p.is_featured))

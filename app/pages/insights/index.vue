@@ -5,7 +5,7 @@ const { data: researchData } = await useResearchList()
 
 const activeTab = ref<'posts' | 'research'>('posts')
 
-useSeoMeta({ title: t('nav.insights') })
+usePageSeo({ title: () => t('seo.insightsTitle'), description: () => t('seo.insightsDescription') })
 </script>
 
 <template>

@@ -19,9 +19,9 @@ export default defineNuxtConfig({
     public: {
       apiBaseUrl: process.env.NUXT_PUBLIC_API_BASE_URL || 'http://127.0.0.1:8000',
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
-      // Site-wide crawl switch: keep false until there's enough content to open to Google.
-      // Flip to "true" (env NUXT_PUBLIC_ALLOW_INDEXING=true) when ready to go live on search.
-      allowIndexing: process.env.NUXT_PUBLIC_ALLOW_INDEXING === 'true',
+      // Site-wide crawl switch: open to Google by default. Set env NUXT_PUBLIC_ALLOW_INDEXING=false
+      // on non-production environments (e.g. dev server) to send noindex + robots Disallow.
+      allowIndexing: process.env.NUXT_PUBLIC_ALLOW_INDEXING !== 'false',
     },
   },
 
@@ -40,6 +40,14 @@ export default defineNuxtConfig({
   app: {
     head: {
       titleTemplate: '%s — XO Edu Lab',
+      script: [
+        // Google tag (gtag.js)
+        { src: 'https://www.googletagmanager.com/gtag/js?id=G-9FQCNF6YL5', async: true },
+        {
+          innerHTML:
+            "window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-9FQCNF6YL5');",
+        },
+      ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },

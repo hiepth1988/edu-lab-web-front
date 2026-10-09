@@ -31,7 +31,7 @@ onMounted(() => {
   if (q.value) runSearch()
 })
 
-useSeoMeta({ title: () => t('search.title') })
+usePageSeo({ title: () => t('search.title'), noindex: true })
 </script>
 
 <template>

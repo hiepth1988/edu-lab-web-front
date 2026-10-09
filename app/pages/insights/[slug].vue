@@ -7,17 +7,42 @@ if (!data.value) {
   throw createError({ statusCode: 404, statusMessage: 'Post not found' })
 }
 
-useSeoMeta({
+usePageSeo({
   title: () => data.value?.data.meta_title || data.value?.data.title,
   description: () => data.value?.data.meta_description || data.value?.data.excerpt || undefined,
-  ogImage: () => data.value?.data.og_image || data.value?.data.featured_image || undefined,
+  image: () => data.value?.data.og_image || data.value?.data.featured_image || undefined,
+  type: 'article',
 })
+
+useLocalizedSlugs(() => data.value?.data.alternate_slugs)
+
+const absoluteUrl = useAbsoluteUrl()
 
 useHead({
   link: () =>
     data.value?.data.canonical_url
       ? [{ rel: 'canonical', href: data.value.data.canonical_url }]
       : [],
+  script: () => {
+    const post = data.value?.data
+    if (!post) return []
+    return [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
+          headline: post.title,
+          description: post.meta_description || post.excerpt || undefined,
+          image: absoluteUrl(post.og_image || post.featured_image),
+          datePublished: post.published_at || undefined,
+          mainEntityOfPage: absoluteUrl(route.path),
+          author: { '@type': 'Organization', name: 'XO Edu Lab' },
+          publisher: { '@type': 'Organization', name: 'XO Edu Lab', logo: { '@type': 'ImageObject', url: absoluteUrl('/images/home/logo.jpg') } },
+        }),
+      },
+    ]
+  },
 })
 </script>
 

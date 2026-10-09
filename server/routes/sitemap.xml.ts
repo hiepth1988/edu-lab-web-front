@@ -1,21 +1,30 @@
 interface SlugItem {
   slug: string
+  published_at?: string | null
+}
+
+interface SitemapEntry {
+  loc: string
+  lastmod?: string | null
+  alternates?: { vi: string; en: string }
 }
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
-  const siteUrl = config.public.siteUrl || 'http://localhost:3000'
+  const siteUrl = (config.public.siteUrl || 'http://localhost:3000').replace(/\/$/, '')
   const apiBase = config.public.apiBaseUrl
 
-  const staticPaths = ['', '/about', '/contact', '/privacy', '/terms', '/solutions', '/products', '/our-work', '/who-we-help', '/insights', '/research']
+  // search is intentionally excluded: result pages are noindex.
+  const staticPaths = ['/about', '/contact', '/privacy', '/terms', '/solutions', '/products', '/our-work', '/who-we-help', '/insights', '/research']
 
-  const urls: string[] = []
+  const entries: SitemapEntry[] = []
+
+  const home = { vi: `${siteUrl}/`, en: `${siteUrl}/en` }
+  entries.push({ loc: home.vi, alternates: home }, { loc: home.en, alternates: home })
 
   for (const path of staticPaths) {
-    const viUrl = `${siteUrl}${path}`
-    const enUrl = `${siteUrl}/en${path}`
-    urls.push(entry(viUrl, viUrl, enUrl))
-    urls.push(entry(enUrl, viUrl, enUrl))
+    const alternates = { vi: `${siteUrl}${path}`, en: `${siteUrl}/en${path}` }
+    entries.push({ loc: alternates.vi, alternates }, { loc: alternates.en, alternates })
   }
 
   const collections = [
@@ -37,31 +46,43 @@ export default defineEventHandler(async (event) => {
       }).catch(() => ({ data: [] })),
     ])
 
+    // Slugs differ per locale, so detail pages are listed per locale; their hreflang
+    // alternates are emitted in the page <head> (useLocalizedSlugs).
     for (const item of itemsVi.data) {
-      urls.push(entry(`${siteUrl}/${collection.prefix}/${item.slug}`, `${siteUrl}/${collection.prefix}/${item.slug}`))
+      if (item.slug) entries.push({ loc: `${siteUrl}/${collection.prefix}/${item.slug}`, lastmod: item.published_at })
     }
-
     for (const item of itemsEn.data) {
-      urls.push(
-        entry(`${siteUrl}/en/${collection.prefix}/${item.slug}`, undefined, `${siteUrl}/en/${collection.prefix}/${item.slug}`),
-      )
+      if (item.slug) entries.push({ loc: `${siteUrl}/en/${collection.prefix}/${item.slug}`, lastmod: item.published_at })
     }
   }
 
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.join('\n')}\n</urlset>`
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${entries.map(render).join('\n')}\n</urlset>`
 
-  setHeader(event, 'Content-Type', 'application/xml')
+  setHeader(event, 'Content-Type', 'application/xml; charset=utf-8')
+  setHeader(event, 'Cache-Control', 'public, max-age=3600')
 
   return xml
 })
 
-function entry(loc: string, viAlt?: string, enAlt?: string) {
-  const alternates = [
-    viAlt ? `    <xhtml:link rel="alternate" hreflang="vi" href="${viAlt}" />` : '',
-    enAlt ? `    <xhtml:link rel="alternate" hreflang="en" href="${enAlt}" />` : '',
-  ]
-    .filter(Boolean)
-    .join('\n')
+function render(entry: SitemapEntry) {
+  const lines = [`    <loc>${escapeXml(entry.loc)}</loc>`]
 
-  return `  <url>\n    <loc>${loc}</loc>\n${alternates}\n  </url>`
+  if (entry.lastmod) {
+    const date = new Date(entry.lastmod)
+    if (!Number.isNaN(date.getTime())) lines.push(`    <lastmod>${date.toISOString()}</lastmod>`)
+  }
+
+  if (entry.alternates) {
+    lines.push(
+      `    <xhtml:link rel="alternate" hreflang="vi" href="${escapeXml(entry.alternates.vi)}" />`,
+      `    <xhtml:link rel="alternate" hreflang="en" href="${escapeXml(entry.alternates.en)}" />`,
+      `    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(entry.alternates.vi)}" />`,
+    )
+  }
+
+  return `  <url>\n${lines.join('\n')}\n  </url>`
+}
+
+function escapeXml(value: string) {
+  return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;')
 }

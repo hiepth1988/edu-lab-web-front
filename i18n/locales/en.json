@@ -113,5 +113,20 @@
     "technicalNotes": "Technical Notes",
     "poweredBy": "Powered by:",
     "inPractice": "In practice"
+  },
+  "seo": {
+    "siteDescription": "XO Edu Lab designs and builds digital education platforms: LMS, online exam systems, AI in education and learning analytics for schools, training centers and EdTech teams.",
+    "solutionsTitle": "Education Technology Solutions",
+    "solutionsDescription": "XO Edu Lab EdTech solutions: LMS, online exam platforms, AI in education, learning analytics, adaptive learning and school management.",
+    "productsTitle": "Products & Technology",
+    "productsDescription": "XO Edu Lab products and core engines: Exam Engine, Question Bank Engine, Learning Analytics, AI Learning Engine and Knowledge Graph Engine.",
+    "ourWorkTitle": "Our Work",
+    "ourWorkDescription": "Case studies of digital education platforms built by XO Edu Lab: LMS, exam systems and learning apps for schools, training centers and enterprises.",
+    "whoWeHelpTitle": "Who We Help",
+    "whoWeHelpDescription": "XO Edu Lab partners with independent educators, training centers, schools, EdTech startups and enterprises to build digital learning products.",
+    "insightsTitle": "EdTech Insights",
+    "insightsDescription": "Articles, analysis and hands-on lessons on building LMS, online exam platforms, AI and learning data from the XO Edu Lab team.",
+    "researchTitle": "Research",
+    "researchDescription": "XO Edu Lab research on learning science, assessment, AI and education data, applied to real products."
   }
 }

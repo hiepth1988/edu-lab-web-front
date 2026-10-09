@@ -2,7 +2,7 @@
 const { t } = useI18n()
 const { data } = await useResearchList()
 
-useSeoMeta({ title: t('nav.research') })
+usePageSeo({ title: () => t('seo.researchTitle'), description: () => t('seo.researchDescription') })
 </script>
 
 <template>

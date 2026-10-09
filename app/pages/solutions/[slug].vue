@@ -30,11 +30,13 @@ const crossLinks: Record<string, { label: string; to: string }[]> = {
 
 const activeCrossLinks = computed(() => crossLinks[route.params.slug as string] ?? [])
 
-useSeoMeta({
+usePageSeo({
   title: () => data.value?.data.meta_title || data.value?.data.title,
   description: () => data.value?.data.meta_description || data.value?.data.subheading || undefined,
-  ogImage: () => data.value?.data.og_image || undefined,
+  image: () => data.value?.data.og_image || undefined,
 })
+
+useLocalizedSlugs(() => data.value?.data.alternate_slugs)
 
 useHead({
   link: () =>

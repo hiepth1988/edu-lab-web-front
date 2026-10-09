@@ -2,7 +2,7 @@
 const { t } = useI18n()
 const { data } = await useAudiencesList()
 
-useSeoMeta({ title: t('nav.whoWeHelp') })
+usePageSeo({ title: () => t('seo.whoWeHelpTitle'), description: () => t('seo.whoWeHelpDescription') })
 </script>
 
 <template>

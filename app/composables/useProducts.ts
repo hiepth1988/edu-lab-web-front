@@ -13,6 +13,7 @@ export interface ProductDetail extends ProductSummary {
   meta_description: string | null
   og_image: string | null
   canonical_url: string | null
+  alternate_slugs?: Record<string, string>
 }
 
 export function useProductsList() {

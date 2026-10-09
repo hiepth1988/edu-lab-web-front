@@ -2,7 +2,7 @@
 const { t } = useI18n()
 const { data } = await useSolutionsList()
 
-useSeoMeta({ title: t('nav.solutions') })
+usePageSeo({ title: () => t('seo.solutionsTitle'), description: () => t('seo.solutionsDescription') })
 </script>
 
 <template>
