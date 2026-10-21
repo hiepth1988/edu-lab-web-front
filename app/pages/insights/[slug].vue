@@ -71,10 +71,12 @@ useHead({
       v-if="data.data.featured_image"
       :src="data.data.featured_image"
       :alt="data.data.title"
-      class="mt-lg h-64 sm:h-80 w-full rounded-xl object-cover"
+      class="mt-lg aspect-[1200/630] w-full rounded-xl object-cover"
     />
 
-    <div class="mt-lg prose max-w-none text-on-surface" v-html="data.data.content" />
+    <ContentLightbox>
+      <div class="mt-lg post-content text-on-surface" v-html="data.data.content" />
+    </ContentLightbox>
 
     <aside v-if="cta" class="mt-lg rounded-xl bg-surface-container-high p-md sm:p-lg">
       <p class="font-body-lg text-on-surface">

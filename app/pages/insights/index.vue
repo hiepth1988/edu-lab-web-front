@@ -41,7 +41,7 @@ usePageSeo({ title: () => t('seo.insightsTitle'), description: () => t('seo.insi
         :to="`/insights/${post.slug}`"
         class="group block bg-white rounded-xl premium-border overflow-hidden hover-lift"
       >
-        <div v-if="post.featured_image" class="h-40 overflow-hidden">
+        <div v-if="post.featured_image" class="aspect-[1200/630] overflow-hidden">
           <img :src="post.featured_image" :alt="post.title" class="h-full w-full object-cover" />
         </div>
         <div class="p-md">

@@ -51,3 +51,46 @@
     transition: all 0.2s ease;
   }
 }
+
+/* Rich-text post content (HTML from the admin editor). The Tailwind typography plugin isn't
+   installed, so `prose` alone does nothing and preflight would leave headings/lists unstyled.
+   Content pasted with its own inline styles still wins over these rules. */
+@layer components {
+  .post-content { @apply font-body-md text-body-md sm:text-body-lg break-words; }
+  .post-content > * + *,
+  .post-content > div > * + * { margin-top: 1.25rem; }
+  .post-content h2 { @apply font-serif text-headline-sm sm:text-headline-md text-primary; margin-top: 2.5rem; }
+  .post-content h3 { @apply font-sans text-lg sm:text-xl font-semibold text-primary; margin-top: 2rem; }
+  .post-content h4 { @apply font-sans text-lg font-semibold text-primary; margin-top: 1.5rem; }
+  /* Clear the sticky site header when jumping to a heading from the table of contents. */
+  .post-content [id] { scroll-margin-top: 96px; }
+  .post-content p, .post-content li { line-height: 1.75; }
+  .post-content ul { @apply list-disc pl-6; }
+  .post-content ol { @apply list-decimal pl-6; }
+  .post-content li + li { margin-top: 0.5rem; }
+  .post-content li > ul, .post-content li > ol { margin-top: 0.5rem; }
+  .post-content a { @apply text-secondary underline underline-offset-4 hover:text-primary; }
+  .post-content strong, .post-content b { @apply font-semibold text-primary; }
+
+  /* Table of contents */
+  .post-content nav { @apply rounded-xl border border-outline-variant/50 bg-white p-md; }
+  .post-content nav h2, .post-content nav h3 { @apply font-sans text-base font-bold text-primary; margin-top: 0; }
+  .post-content nav ol, .post-content nav ul { @apply mt-2 text-body-md; }
+  .post-content nav a { @apply no-underline hover:underline; }
+
+  /* Callouts / quick answers */
+  .post-content blockquote { @apply rounded-r-xl border-l-4 border-secondary bg-secondary/5 px-md py-4 text-on-surface; }
+  .post-content blockquote > * + * { margin-top: 0.75rem; }
+
+  .post-content img, .post-content video { @apply block w-full h-auto rounded-xl; }
+  .post-content iframe { @apply block w-full aspect-video rounded-xl; }
+  .post-content figure { margin-top: 2rem; margin-bottom: 2rem; }
+  .post-content figcaption { @apply mt-2 text-center text-sm text-on-surface-variant; }
+
+  /* Tables scroll sideways on phones instead of squashing columns. */
+  .post-content table { @apply w-full border-collapse text-sm; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .post-content thead, .post-content tbody { @apply w-full; }
+  .post-content th, .post-content td { @apply border border-outline-variant/60 px-3 py-2 text-left align-top; min-width: 120px; }
+  .post-content th { @apply bg-surface-container font-semibold text-primary; }
+  .post-content hr { @apply border-outline-variant/40; }
+}

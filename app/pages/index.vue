@@ -328,7 +328,7 @@ usePageSeo({
           :to="`/insights/${post.slug}`"
           class="group block bg-white rounded-xl premium-border overflow-hidden hover-lift"
         >
-          <div class="h-40 bg-surface-container-high overflow-hidden">
+          <div class="aspect-[1200/630] bg-surface-container-high overflow-hidden">
             <img v-if="post.featured_image" :src="post.featured_image" :alt="post.title" class="h-full w-full object-cover" />
           </div>
           <div class="p-md">
