@@ -240,10 +240,7 @@ const mobileMenuOpen = ref(false)
     <footer class="w-full bg-surface-container-low border-t border-outline-variant/20 pt-xl">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-xl px-margin-mobile sm:px-margin-desktop pb-xl max-w-max-width mx-auto">
         <div class="space-y-md">
-          <div class="flex items-center gap-xs">
-            <img src="/images/brand/xo-mark.svg" alt="XO Edu Lab" width="61" height="32" class="h-8 w-auto" />
-            <span class="font-headline-md text-headline-md font-bold text-primary">XO Edu Lab</span>
-          </div>
+          <img src="/images/brand/xo-logo-horizontal.png" alt="XO Edu Lab – Space to become" width="640" height="117" class="w-full max-w-[260px] h-auto" />
           <p class="font-body-md text-on-surface-variant">{{ t('footer.tagline') }}</p>
         </div>
 
