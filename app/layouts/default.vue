@@ -168,6 +168,7 @@ const mobileMenuOpen = ref(false)
           <LocaleSwitcher class="hidden sm:flex" />
           <NuxtLinkLocale
             :to="localePath('/contact')"
+            data-track="header_cta"
             class="hidden sm:inline-block bg-secondary text-white px-4 py-2 rounded-full text-sm font-medium hover:opacity-90 transition-opacity whitespace-nowrap"
           >
             {{ t('cta.buildWithXo') }}
@@ -222,6 +223,7 @@ const mobileMenuOpen = ref(false)
           <LocaleSwitcher />
           <NuxtLinkLocale
             :to="localePath('/contact')"
+            data-track="mobile_menu_cta"
             class="bg-secondary text-white px-md py-sm rounded-full font-label-md hover:opacity-90 transition-opacity"
             @click="mobileMenuOpen = false"
           >

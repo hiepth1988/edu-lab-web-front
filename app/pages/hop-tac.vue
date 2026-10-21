@@ -57,7 +57,7 @@ usePageSeo({
     <StarterPackage v-if="starterPackage" :section="starterPackage" />
 
     <!-- Collaboration models -->
-    <section v-if="models" class="py-xl bg-surface-container-high">
+    <section v-if="models" data-track-section="partnership_models" class="py-xl bg-surface-container-high">
       <div class="max-w-max-width mx-auto px-margin-mobile sm:px-margin-desktop">
         <div class="text-center mb-xl">
           <h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary mb-md">{{ models.heading }}</h2>
@@ -79,7 +79,7 @@ usePageSeo({
     </section>
 
     <!-- Comparison -->
-    <section v-if="comparison" class="py-xl px-margin-mobile sm:px-margin-desktop max-w-max-width mx-auto">
+    <section v-if="comparison" data-track-section="partnership_comparison" class="py-xl px-margin-mobile sm:px-margin-desktop max-w-max-width mx-auto">
       <h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary mb-xl text-center">{{ comparison.heading }}</h2>
       <!-- Desktop: table -->
       <div class="hidden md:block overflow-hidden rounded-xl premium-border bg-white">
@@ -127,7 +127,7 @@ usePageSeo({
     </section>
 
     <!-- Process -->
-    <section v-if="process" class="py-xl bg-surface-container-low">
+    <section v-if="process" data-track-section="partnership_process" class="py-xl bg-surface-container-low">
       <div class="max-w-max-width mx-auto px-margin-mobile sm:px-margin-desktop">
         <h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary mb-xl text-center">{{ process.heading }}</h2>
         <ol class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-md">
@@ -145,7 +145,7 @@ usePageSeo({
     </section>
 
     <!-- FAQ -->
-    <section v-if="faq" class="py-xl px-margin-mobile sm:px-margin-desktop max-w-3xl mx-auto">
+    <section v-if="faq" data-track-section="partnership_faq" class="py-xl px-margin-mobile sm:px-margin-desktop max-w-3xl mx-auto">
       <h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary mb-xl text-center">{{ faq.heading }}</h2>
       <div class="space-y-sm">
         <details
@@ -163,7 +163,7 @@ usePageSeo({
     </section>
 
     <!-- Case study -->
-    <section v-if="caseStudy" class="border-t border-outline-variant/20 py-xl">
+    <section v-if="caseStudy" data-track-section="partnership_caseStudy" class="border-t border-outline-variant/20 py-xl">
       <div class="max-w-max-width mx-auto px-margin-mobile sm:px-margin-desktop text-center">
         <h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary">{{ caseStudy.heading }}</h2>
         <p class="mt-sm font-body-lg text-on-surface-variant max-w-2xl mx-auto">{{ caseStudy.body }}</p>
@@ -178,7 +178,7 @@ usePageSeo({
     </section>
 
     <!-- Final CTA -->
-    <section v-if="finalCta" class="py-xl px-margin-mobile sm:px-margin-desktop max-w-max-width mx-auto mb-xl">
+    <section v-if="finalCta" data-track-section="partnership_finalCta" class="py-xl px-margin-mobile sm:px-margin-desktop max-w-max-width mx-auto mb-xl">
       <div class="bg-primary text-white rounded-[48px] p-lg sm:p-xl text-center">
         <div class="max-w-2xl mx-auto space-y-md">
           <h2 class="font-display-lg text-headline-lg-mobile sm:text-headline-lg">{{ finalCta.heading }}</h2>
@@ -187,6 +187,7 @@ usePageSeo({
             <NuxtLinkLocale
               v-if="finalCta.cta_url"
               :to="finalCta.cta_url"
+              data-track="partnership_final_cta"
               class="inline-block bg-secondary text-white px-xl py-md rounded-xl font-label-md hover:opacity-90 transition-all text-lg"
             >
               {{ finalCta.cta_label }}

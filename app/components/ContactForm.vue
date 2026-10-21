@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const { t } = useI18n()
 const { request } = useApi()
+const { track } = useTracking()
 
 const form = reactive({
   name: '',
@@ -33,9 +34,11 @@ async function onSubmit() {
       },
     })
     status.value = 'success'
+    track('lead_submit', { label: form.need || 'unspecified' })
     Object.assign(form, { name: '', email: '', phone: '', company: '', need: '', message: '' })
   } catch {
     status.value = 'error'
+    track('lead_error', { label: form.need || 'unspecified' })
   }
 }
 </script>

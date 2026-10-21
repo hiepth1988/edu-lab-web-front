@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const { t } = useI18n()
 const { request } = useApi()
+const { track } = useTracking()
 
 const email = ref('')
 const status = ref<'idle' | 'submitting' | 'success' | 'error'>('idle')
@@ -10,9 +11,11 @@ async function onSubmit() {
   try {
     await request('/newsletter/subscribe', { method: 'POST', body: { email: email.value } })
     status.value = 'success'
+    track('newsletter_subscribe')
     email.value = ''
   } catch {
     status.value = 'error'
+    track('newsletter_error')
   }
 }
 </script>

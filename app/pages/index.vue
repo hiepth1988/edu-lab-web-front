@@ -65,7 +65,7 @@ usePageSeo({
 <template>
   <div>
     <!-- Hero -->
-    <section class="relative pt-xl pb-xl lg:pb-0 lg:min-h-[85vh] flex items-center overflow-hidden">
+    <section data-track-section="home_hero" class="relative pt-xl pb-xl lg:pb-0 lg:min-h-[85vh] flex items-center overflow-hidden">
       <div class="relative z-10 max-w-max-width mx-auto px-margin-mobile sm:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-xl items-center">
         <div class="space-y-md">
           <span
@@ -84,6 +84,7 @@ usePageSeo({
             <NuxtLinkLocale
               v-if="hero?.cta_url"
               :to="hero.cta_url"
+              data-track="home_hero_primary"
               class="bg-secondary text-white px-xl py-md rounded-xl font-label-md hover:opacity-90 transition-all text-lg"
             >
               {{ hero?.cta_label }}
@@ -91,6 +92,7 @@ usePageSeo({
             <NuxtLinkLocale
               v-if="(hero?.extra as any)?.secondary_cta_url"
               :to="(hero?.extra as any).secondary_cta_url"
+              data-track="home_hero_secondary"
               class="bg-white premium-border text-primary px-xl py-md rounded-xl font-label-md hover:bg-surface-container-low transition-all text-lg"
             >
               {{ (hero?.extra as any).secondary_cta_label }}
@@ -116,7 +118,7 @@ usePageSeo({
     </section>
 
     <!-- Problem -->
-    <section v-if="problem" class="py-xl px-margin-mobile sm:px-margin-desktop max-w-max-width mx-auto">
+    <section v-if="problem" data-track-section="home_problem" class="py-xl px-margin-mobile sm:px-margin-desktop max-w-max-width mx-auto">
       <div class="text-center mb-xl">
         <h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary mb-md">{{ problem.heading }}</h2>
         <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto">{{ problem.body }}</p>
@@ -131,7 +133,7 @@ usePageSeo({
     </section>
 
     <!-- Who We Help -->
-    <section v-if="whoWeHelp" class="py-xl bg-surface-container-low">
+    <section v-if="whoWeHelp" data-track-section="home_whoWeHelp" class="py-xl bg-surface-container-low">
       <div class="max-w-max-width mx-auto px-margin-mobile sm:px-margin-desktop">
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-xl gap-md">
           <div class="max-w-2xl">
@@ -163,7 +165,7 @@ usePageSeo({
     </section>
 
     <!-- Journey -->
-    <section v-if="journey" class="py-xl px-margin-mobile sm:px-margin-desktop max-w-max-width mx-auto">
+    <section v-if="journey" data-track-section="home_journey" class="py-xl px-margin-mobile sm:px-margin-desktop max-w-max-width mx-auto">
       <div class="text-center mb-xl">
         <h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary">{{ journey.heading }}</h2>
       </div>
@@ -191,7 +193,7 @@ usePageSeo({
     </section>
 
     <!-- Ecosystem -->
-    <section v-if="ecosystem" class="py-xl bg-primary text-white overflow-hidden relative">
+    <section v-if="ecosystem" data-track-section="home_ecosystem" class="py-xl bg-primary text-white overflow-hidden relative">
       <div class="max-w-max-width mx-auto px-margin-mobile sm:px-margin-desktop grid grid-cols-1 lg:grid-cols-2 gap-xl items-center relative z-10">
         <div>
           <h2 class="font-display-lg text-headline-lg-mobile sm:text-display-lg text-white mb-md">{{ ecosystem.heading }}</h2>
@@ -214,7 +216,7 @@ usePageSeo({
     </section>
 
     <!-- Process -->
-    <section v-if="process" class="py-xl px-margin-mobile sm:px-margin-desktop max-w-max-width mx-auto">
+    <section v-if="process" data-track-section="home_process" class="py-xl px-margin-mobile sm:px-margin-desktop max-w-max-width mx-auto">
       <div class="flex flex-col md:flex-row items-start gap-xl">
         <div class="w-full md:w-1/3">
           <h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary mb-sm">{{ process.heading }}</h2>
@@ -235,7 +237,7 @@ usePageSeo({
     </section>
 
     <!-- Scale -->
-    <section v-if="scale" class="py-xl px-margin-mobile sm:px-margin-desktop max-w-max-width mx-auto">
+    <section v-if="scale" data-track-section="home_scale" class="py-xl px-margin-mobile sm:px-margin-desktop max-w-max-width mx-auto">
       <h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary mb-xl text-center">{{ scale.heading }}</h2>
       <div class="grid grid-cols-12 gap-md">
         <div
@@ -271,7 +273,7 @@ usePageSeo({
     <StarterPackage v-if="starterPackage" :section="starterPackage" />
 
     <!-- Philosophy -->
-    <section v-if="philosophy" class="py-xl px-margin-mobile sm:px-margin-desktop max-w-max-width mx-auto text-center">
+    <section v-if="philosophy" data-track-section="home_philosophy" class="py-xl px-margin-mobile sm:px-margin-desktop max-w-max-width mx-auto text-center">
       <div class="max-w-3xl mx-auto py-lg">
         <span class="text-6xl font-display-lg text-secondary/30">"</span>
         <p class="font-display-lg text-headline-lg-mobile sm:text-headline-lg text-primary -mt-8 mb-4">
@@ -284,7 +286,7 @@ usePageSeo({
     </section>
 
     <!-- Research Lab -->
-    <section v-if="researchLab" class="border-t border-outline-variant/20 py-xl">
+    <section v-if="researchLab" data-track-section="home_researchLab" class="border-t border-outline-variant/20 py-xl">
       <div class="max-w-max-width mx-auto px-margin-mobile sm:px-margin-desktop text-center">
         <h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary">{{ researchLab.heading }}</h2>
         <p class="mt-sm font-body-lg text-on-surface-variant max-w-2xl mx-auto">{{ researchLab.body }}</p>
@@ -299,7 +301,7 @@ usePageSeo({
     </section>
 
     <!-- Our Work -->
-    <section v-if="ourWork" class="border-t border-outline-variant/20 py-xl bg-surface-container-low">
+    <section v-if="ourWork" data-track-section="home_ourWork" class="border-t border-outline-variant/20 py-xl bg-surface-container-low">
       <div class="max-w-max-width mx-auto px-margin-mobile sm:px-margin-desktop text-center">
         <h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary">{{ ourWork.heading }}</h2>
         <p class="mt-sm font-body-lg text-on-surface-variant max-w-2xl mx-auto">{{ ourWork.body }}</p>
@@ -314,7 +316,7 @@ usePageSeo({
     </section>
 
     <!-- Insights -->
-    <section v-if="latestPosts.length" class="py-xl px-margin-mobile sm:px-margin-desktop max-w-max-width mx-auto">
+    <section v-if="latestPosts.length" data-track-section="home_insights" class="py-xl px-margin-mobile sm:px-margin-desktop max-w-max-width mx-auto">
       <div class="flex justify-between items-end mb-xl">
         <h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary">{{ latestInsights?.heading }}</h2>
         <NuxtLinkLocale v-if="latestInsights?.cta_url" :to="latestInsights.cta_url" class="text-secondary font-label-md whitespace-nowrap">
@@ -340,7 +342,7 @@ usePageSeo({
     </section>
 
     <!-- Final CTA -->
-    <section v-if="finalCta" class="py-xl px-margin-mobile sm:px-margin-desktop max-w-max-width mx-auto mb-xl">
+    <section v-if="finalCta" data-track-section="home_finalCta" class="py-xl px-margin-mobile sm:px-margin-desktop max-w-max-width mx-auto mb-xl">
       <div class="bg-primary text-white rounded-[48px] p-lg sm:p-xl text-center relative overflow-hidden">
         <div class="relative z-10 max-w-2xl mx-auto space-y-md">
           <h2 class="font-display-lg text-headline-lg-mobile sm:text-headline-lg">{{ finalCta.heading }}</h2>
@@ -349,6 +351,7 @@ usePageSeo({
             <NuxtLinkLocale
               v-if="finalCta.cta_url"
               :to="finalCta.cta_url"
+              data-track="home_final_cta"
               class="inline-block bg-secondary text-white px-xl py-md rounded-xl font-label-md hover:opacity-90 transition-all text-lg shadow-xl shadow-secondary/20"
             >
               {{ finalCta.cta_label }}

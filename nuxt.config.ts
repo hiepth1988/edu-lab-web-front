@@ -24,6 +24,8 @@ export default defineNuxtConfig({
       allowIndexing: process.env.NUXT_PUBLIC_ALLOW_INDEXING !== 'false',
       // Default target of the CTA at the end of every insight post (posts can override it in admin).
       postCtaUrl: process.env.NUXT_PUBLIC_POST_CTA_URL || '/hop-tac',
+      // First-party visitor tracking (plugins/tracking.client.ts → API /api/track).
+      trackingEnabled: process.env.NUXT_PUBLIC_TRACKING_ENABLED !== 'false',
     },
   },
 

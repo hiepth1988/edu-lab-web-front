@@ -36,7 +36,7 @@ const extra = computed(() => (props.section.extra ?? {}) as StarterExtra)
 </script>
 
 <template>
-  <section class="py-xl px-margin-mobile sm:px-margin-desktop max-w-max-width mx-auto">
+  <section data-track-section="starter_package" class="py-xl px-margin-mobile sm:px-margin-desktop max-w-max-width mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-xl items-start">
       <div class="lg:sticky lg:top-28 space-y-md">
         <span
@@ -60,6 +60,7 @@ const extra = computed(() => (props.section.extra ?? {}) as StarterExtra)
           <NuxtLinkLocale
             v-if="section.cta_url"
             :to="section.cta_url"
+            data-track="starter_package_primary"
             class="inline-block bg-secondary text-white px-xl py-md rounded-xl font-label-md hover:opacity-90 transition-all"
           >
             {{ section.cta_label }}
@@ -67,6 +68,7 @@ const extra = computed(() => (props.section.extra ?? {}) as StarterExtra)
           <NuxtLinkLocale
             v-if="extra.secondary_cta_url"
             :to="extra.secondary_cta_url"
+            data-track="starter_package_secondary"
             class="text-secondary font-label-md flex items-center gap-xs hover:underline"
           >
             {{ extra.secondary_cta_label }} <span class="material-symbols-outlined">arrow_forward</span>

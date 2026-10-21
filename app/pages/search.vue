@@ -5,6 +5,7 @@ const route = useRoute()
 const router = useRouter()
 const { t } = useI18n()
 const { search } = useSearch()
+const { track } = useTracking()
 
 const q = ref((route.query.q as string) ?? '')
 const results = ref<SearchResult[]>([])
@@ -25,6 +26,7 @@ async function runSearch() {
   router.replace({ query: { q: q.value } })
   results.value = await search(q.value)
   loading.value = false
+  track('search', { label: q.value.trim().toLowerCase().slice(0, 100), value: results.value.length })
 }
 
 onMounted(() => {
