@@ -22,6 +22,8 @@ export default defineNuxtConfig({
       // Site-wide crawl switch: open to Google by default. Set env NUXT_PUBLIC_ALLOW_INDEXING=false
       // on non-production environments (e.g. dev server) to send noindex + robots Disallow.
       allowIndexing: process.env.NUXT_PUBLIC_ALLOW_INDEXING !== 'false',
+      // Default target of the CTA at the end of every insight post (posts can override it in admin).
+      postCtaUrl: process.env.NUXT_PUBLIC_POST_CTA_URL || '/hop-tac',
     },
   },
 

@@ -22,6 +22,10 @@ export default defineEventHandler(async (event) => {
   const home = { vi: `${siteUrl}/`, en: `${siteUrl}/en` }
   entries.push({ loc: home.vi, alternates: home }, { loc: home.en, alternates: home })
 
+  // Localized path (definePageMeta i18n.paths in pages/hop-tac.vue).
+  const partnership = { vi: `${siteUrl}/hop-tac`, en: `${siteUrl}/en/partnership` }
+  entries.push({ loc: partnership.vi, alternates: partnership }, { loc: partnership.en, alternates: partnership })
+
   for (const path of staticPaths) {
     const alternates = { vi: `${siteUrl}${path}`, en: `${siteUrl}/en${path}` }
     entries.push({ loc: alternates.vi, alternates }, { loc: alternates.en, alternates })

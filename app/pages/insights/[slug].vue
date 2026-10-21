@@ -18,6 +18,19 @@ useLocalizedSlugs(() => data.value?.data.alternate_slugs)
 
 const absoluteUrl = useAbsoluteUrl()
 
+const config = useRuntimeConfig()
+// Posts without a custom CTA get the site-wide default; `cta: null` means the post turned it off.
+const cta = computed(() => {
+  const c = data.value?.data.cta
+  if (!c) return null
+  return {
+    text: c.text || t('detail.postCtaText'),
+    label: c.label || t('detail.postCtaLabel'),
+    url: c.url || (config.public.postCtaUrl as string),
+  }
+})
+const ctaIsExternal = computed(() => !!cta.value && /^https?:\/\//.test(cta.value.url))
+
 useHead({
   link: () =>
     data.value?.data.canonical_url
@@ -62,6 +75,14 @@ useHead({
     />
 
     <div class="mt-lg prose max-w-none text-on-surface" v-html="data.data.content" />
+
+    <aside v-if="cta" class="mt-lg rounded-xl bg-surface-container-high p-md sm:p-lg">
+      <p class="font-body-lg text-on-surface">
+        {{ cta.text }}
+        <a v-if="ctaIsExternal" :href="cta.url" target="_blank" rel="noopener" class="font-bold text-secondary underline underline-offset-4 hover:text-primary">{{ cta.label }}</a>
+        <NuxtLinkLocale v-else :to="cta.url" class="font-bold text-secondary underline underline-offset-4 hover:text-primary">{{ cta.label }}</NuxtLinkLocale>
+      </p>
+    </aside>
 
     <div v-if="data.data.tags.length" class="mt-lg flex flex-wrap gap-2">
       <span

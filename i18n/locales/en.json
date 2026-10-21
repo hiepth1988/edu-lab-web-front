@@ -8,6 +8,7 @@
     "research": "Research",
     "ourWork": "Our Work",
     "insights": "Insights",
+    "partnership": "Partnership",
     "about": "Why XO",
     "contact": "Contact",
     "search": "Search"
@@ -103,6 +104,8 @@
     "faq": "FAQ",
     "relatedProducts": "Related Products",
     "relatedInsights": "Related Insights",
+    "postCtaText": "Weighing Moodle against building your own? In a 4-week Product Discovery, XO works with you to define the learning behaviors you need to create, what to build and what to take off the shelf.",
+    "postCtaLabel": "Book a consultation",
     "result": "Result",
     "solution": "Solution",
     "atAGlance": "At a Glance"

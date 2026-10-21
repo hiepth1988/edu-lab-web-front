@@ -36,14 +36,6 @@ interface Tile {
   title: string
   body?: string
 }
-interface Plan {
-  title: string
-  body?: string
-  cta_label?: string
-  cta_url?: string
-  featured?: boolean
-  badge?: string
-}
 
 const hero = section('hero')
 const problem = section('problem')
@@ -53,7 +45,7 @@ const journey = section('journey')
 const ecosystem = section('tech_capability')
 const process = section('process')
 const scale = section('scale')
-const partnership = section('partnership')
+const starterPackage = section('starter_package')
 const philosophy = section('philosophy')
 const researchLab = section('research_lab')
 const ourWork = section('our_work')
@@ -275,33 +267,8 @@ usePageSeo({
       </div>
     </section>
 
-    <!-- Partnership -->
-    <section v-if="partnership" class="py-xl bg-surface-container-high">
-      <div class="max-w-max-width mx-auto px-margin-mobile sm:px-margin-desktop">
-        <h2 class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg text-primary mb-xl text-center">{{ partnership.heading }}</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
-          <div
-            v-for="plan in ((partnership.extra as any)?.plans as Plan[] ?? [])"
-            :key="plan.title"
-            class="bg-white p-lg rounded-xl flex flex-col items-center text-center space-y-md"
-            :class="plan.featured ? 'ring-4 ring-secondary/10 border border-secondary/50' : 'border border-outline-variant/30'"
-          >
-            <div v-if="plan.badge" class="bg-secondary text-white px-3 py-1 rounded-full text-xs font-bold">{{ plan.badge }}</div>
-            <h3 class="font-headline-sm text-primary">{{ plan.title }}</h3>
-            <p class="font-body-md text-on-surface-variant">{{ plan.body }}</p>
-            <NuxtLinkLocale
-              v-if="plan.cta_url"
-              :to="plan.cta_url"
-              :class="plan.featured
-                ? 'bg-secondary text-white px-md py-sm rounded-full w-full'
-                : 'text-secondary font-bold underline'"
-            >
-              {{ plan.cta_label }}
-            </NuxtLinkLocale>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Starter package (full details on /hop-tac) -->
+    <StarterPackage v-if="starterPackage" :section="starterPackage" />
 
     <!-- Philosophy -->
     <section v-if="philosophy" class="py-xl px-margin-mobile sm:px-margin-desktop max-w-max-width mx-auto text-center">

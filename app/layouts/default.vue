@@ -155,6 +155,10 @@ const mobileMenuOpen = ref(false)
           <NuxtLinkLocale :to="localePath('/insights')" class="text-on-surface-variant hover:text-secondary transition-colors text-sm whitespace-nowrap">
             {{ t('nav.insights') }}
           </NuxtLinkLocale>
+
+          <NuxtLinkLocale :to="localePath('/hop-tac')" class="text-on-surface-variant hover:text-secondary transition-colors text-sm whitespace-nowrap">
+            {{ t('nav.partnership') }}
+          </NuxtLinkLocale>
         </div>
 
         <div class="flex items-center gap-3">
@@ -210,6 +214,7 @@ const mobileMenuOpen = ref(false)
         </div>
 
         <NuxtLinkLocale :to="localePath('/insights')" class="block font-body-md text-on-surface-variant" @click="mobileMenuOpen = false">{{ t('nav.insights') }}</NuxtLinkLocale>
+        <NuxtLinkLocale :to="localePath('/hop-tac')" class="block font-body-md text-on-surface-variant" @click="mobileMenuOpen = false">{{ t('nav.partnership') }}</NuxtLinkLocale>
         <NuxtLinkLocale :to="localePath('/about')" class="block font-body-md text-on-surface-variant" @click="mobileMenuOpen = false">{{ t('nav.whyXo') }}</NuxtLinkLocale>
         <NuxtLinkLocale :to="localePath('/search')" class="block font-body-md text-on-surface-variant" @click="mobileMenuOpen = false">{{ t('nav.search') }}</NuxtLinkLocale>
 
@@ -245,6 +250,7 @@ const mobileMenuOpen = ref(false)
           <ul class="space-y-sm">
             <li><NuxtLinkLocale :to="localePath('/about')" class="text-on-surface-variant hover:text-primary transition-all font-body-md">{{ t('nav.whyXo') }}</NuxtLinkLocale></li>
             <li><NuxtLinkLocale :to="localePath('/solutions')" class="text-on-surface-variant hover:text-primary transition-all font-body-md">{{ t('nav.solutions') }}</NuxtLinkLocale></li>
+            <li><NuxtLinkLocale :to="localePath('/hop-tac')" class="text-on-surface-variant hover:text-primary transition-all font-body-md">{{ t('nav.partnership') }}</NuxtLinkLocale></li>
             <li><NuxtLinkLocale :to="localePath('/about')" class="text-on-surface-variant hover:text-primary transition-all font-body-md">{{ t('footer.ourProcess') }}</NuxtLinkLocale></li>
           </ul>
         </div>

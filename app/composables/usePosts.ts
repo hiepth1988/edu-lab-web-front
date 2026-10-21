@@ -40,13 +40,20 @@ export interface RelatedPost {
   slug: string
   title: string
   excerpt: string | null
+  featured_image?: string | null
+}
+
+export interface PostCta {
+  text: string | null
+  label: string | null
+  url: string | null
 }
 
 export function usePostDetail(slug: string) {
   const { locale } = useI18n()
   const { request } = useApi()
 
-  return useAsyncData<{ data: PostSummary & { content: string | null; related_posts: RelatedPost[]; alternate_slugs?: Record<string, string> } }>(
+  return useAsyncData<{ data: PostSummary & { content: string | null; related_posts: RelatedPost[]; cta?: PostCta | null; alternate_slugs?: Record<string, string> } }>(
     `post-${slug}-${locale.value}`,
     () => request(`/posts/${slug}`),
     { watch: [locale] },
