@@ -51,7 +51,7 @@ useHead({
           datePublished: post.published_at || undefined,
           mainEntityOfPage: absoluteUrl(route.path),
           author: { '@type': 'Organization', name: 'XO Edu Lab' },
-          publisher: { '@type': 'Organization', name: 'XO Edu Lab', logo: { '@type': 'ImageObject', url: absoluteUrl('/images/brand/xo-logo-social-512.png') } },
+          publisher: { '@type': 'Organization', name: 'XO Edu Lab', logo: { '@type': 'ImageObject', url: absoluteUrl('/images/brand/edulab-logo-social-512.png') } },
         }),
       },
     ]
