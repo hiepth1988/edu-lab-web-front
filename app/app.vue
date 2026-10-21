@@ -26,7 +26,7 @@ useHead(() => ({
             '@id': `${absoluteUrl('/')}#organization`,
             name: 'XO Edu Lab',
             url: absoluteUrl('/'),
-            logo: absoluteUrl('/images/home/logo.jpg'),
+            logo: absoluteUrl('/images/brand/xo-logo-social-512.png'),
             description: t('seo.siteDescription'),
           },
           {

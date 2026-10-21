@@ -80,7 +80,7 @@ const mobileMenuOpen = ref(false)
     <header class="sticky top-0 z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30">
       <nav class="flex justify-between items-center gap-md px-margin-mobile sm:px-margin-desktop py-sm max-w-max-width mx-auto">
         <NuxtLinkLocale :to="localePath('/')" class="flex items-center gap-xs shrink-0">
-          <img src="/images/home/logo.jpg" alt="XO Edu Lab" class="h-9 w-9 rounded-lg object-cover" />
+          <img src="/images/brand/xo-mark.svg" alt="XO Edu Lab" width="69" height="36" class="h-9 w-auto" />
           <span class="font-headline-sm text-lg font-bold text-primary whitespace-nowrap">XO Edu Lab</span>
         </NuxtLinkLocale>
 
@@ -241,7 +241,7 @@ const mobileMenuOpen = ref(false)
       <div class="grid grid-cols-1 md:grid-cols-4 gap-xl px-margin-mobile sm:px-margin-desktop pb-xl max-w-max-width mx-auto">
         <div class="space-y-md">
           <div class="flex items-center gap-xs">
-            <img src="/images/home/logo.jpg" alt="XO Edu Lab" class="h-8 w-8 rounded-lg object-cover" />
+            <img src="/images/brand/xo-mark.svg" alt="XO Edu Lab" width="61" height="32" class="h-8 w-auto" />
             <span class="font-headline-md text-headline-md font-bold text-primary">XO Edu Lab</span>
           </div>
           <p class="font-body-md text-on-surface-variant">{{ t('footer.tagline') }}</p>
