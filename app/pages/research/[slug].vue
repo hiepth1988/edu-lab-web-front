@@ -24,7 +24,7 @@ useHead({
 </script>
 
 <template>
-  <article v-if="data" class="max-w-2xl mx-auto px-margin-mobile sm:px-margin-desktop py-xl">
+  <article v-if="data" class="max-w-[832px] mx-auto px-margin-mobile sm:px-8 py-xl">
     <p v-if="data.data.topic" class="text-xs font-bold uppercase tracking-widest text-secondary">
       {{ data.data.topic.name }}
     </p>
