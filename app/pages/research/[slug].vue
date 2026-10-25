@@ -1,10 +1,8 @@
 <script setup lang="ts">
 const route = useRoute()
-const { data } = await useResearchDetail(route.params.slug as string)
+const { data, error } = await useResearchDetail(route.params.slug as string)
 
-if (!data.value) {
-  throw createError({ statusCode: 404, statusMessage: 'Research post not found' })
-}
+throwIfMissing(data, error, 'Research post not found')
 
 usePageSeo({
   title: () => data.value?.data.meta_title || data.value?.data.title,

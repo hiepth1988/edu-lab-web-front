@@ -1,11 +1,9 @@
 <script setup lang="ts">
 const route = useRoute()
 const { t } = useI18n()
-const { data } = await useAudienceDetail(route.params.slug as string)
+const { data, error } = await useAudienceDetail(route.params.slug as string)
 
-if (!data.value) {
-  throw createError({ statusCode: 404, statusMessage: 'Audience not found' })
-}
+throwIfMissing(data, error, 'Audience not found')
 
 usePageSeo({
   title: () => data.value?.data.meta_title || data.value?.data.title,

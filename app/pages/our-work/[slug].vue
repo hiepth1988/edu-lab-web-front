@@ -1,11 +1,9 @@
 <script setup lang="ts">
 const route = useRoute()
 const { t } = useI18n()
-const { data } = await useProjectDetail(route.params.slug as string)
+const { data, error } = await useProjectDetail(route.params.slug as string)
 
-if (!data.value) {
-  throw createError({ statusCode: 404, statusMessage: 'Project not found' })
-}
+throwIfMissing(data, error, 'Project not found')
 
 usePageSeo({
   title: () => data.value?.data.meta_title || data.value?.data.title,

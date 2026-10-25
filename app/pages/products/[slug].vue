@@ -1,11 +1,9 @@
 <script setup lang="ts">
 const route = useRoute()
 const { t } = useI18n()
-const { data } = await useProductDetail(route.params.slug as string)
+const { data, error } = await useProductDetail(route.params.slug as string)
 
-if (!data.value) {
-  throw createError({ statusCode: 404, statusMessage: 'Product not found' })
-}
+throwIfMissing(data, error, 'Product not found')
 
 usePageSeo({
   title: () => data.value?.data.meta_title || data.value?.data.name,

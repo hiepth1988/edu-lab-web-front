@@ -1,11 +1,9 @@
 <script setup lang="ts">
 const route = useRoute()
 const { t } = useI18n()
-const { data } = await usePostDetail(route.params.slug as string)
+const { data, error } = await usePostDetail(route.params.slug as string)
 
-if (!data.value) {
-  throw createError({ statusCode: 404, statusMessage: 'Post not found' })
-}
+throwIfMissing(data, error, 'Post not found')
 
 usePageSeo({
   title: () => data.value?.data.meta_title || data.value?.data.title,

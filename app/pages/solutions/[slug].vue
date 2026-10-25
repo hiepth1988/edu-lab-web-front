@@ -1,11 +1,9 @@
 <script setup lang="ts">
 const route = useRoute()
 const { t } = useI18n()
-const { data } = await useSolutionDetail(route.params.slug as string)
+const { data, error } = await useSolutionDetail(route.params.slug as string)
 
-if (!data.value) {
-  throw createError({ statusCode: 404, statusMessage: 'Solution not found' })
-}
+throwIfMissing(data, error, 'Solution not found')
 
 // Cross-link targets shown under architecture_note, per checklist items #3, #5, #6, #9.
 // Each solution slug maps to the related products/solutions it should link to.

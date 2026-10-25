@@ -39,6 +39,13 @@ export default defineNuxtConfig({
     defaultLocale: 'vi',
     strategy: 'prefix_except_default',
     detectBrowserLanguage: false,
+    // Read localized paths from definePageMeta({ i18n: { paths } }) (pages/hop-tac.vue).
+    customRoutes: 'meta',
+  },
+
+  routeRules: {
+    // English partnership page moved from /en/hop-tac to /en/partnership.
+    '/en/hop-tac': { redirect: { to: '/en/partnership', statusCode: 301 } },
   },
 
   app: {
