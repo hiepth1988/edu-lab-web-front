@@ -53,6 +53,7 @@ const filteredGalleryImages = computed(() => {
 
 <template>
   <div v-if="data">
+    <ContentLightbox>
     <!-- Hero -->
     <section class="max-w-max-width mx-auto px-margin-mobile sm:px-margin-desktop pt-xl pb-xl">
       <div class="grid lg:grid-cols-2 gap-xl items-center">
@@ -370,5 +371,6 @@ const filteredGalleryImages = computed(() => {
         {{ t('cta.bookConsultation') }}
       </NuxtLinkLocale>
     </div>
+    </ContentLightbox>
   </div>
 </template>
