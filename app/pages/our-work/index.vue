@@ -20,15 +20,19 @@ const rest = computed(() => (data.value?.data ?? []).filter((p) => !p.is_feature
         v-for="item in featured"
         :key="item.id"
         :to="`/our-work/${item.slug}`"
-        class="group block bg-white rounded-xl premium-border overflow-hidden hover-lift sm:grid sm:grid-cols-2"
+        class="group block bg-white rounded-xl premium-border overflow-hidden hover-lift sm:grid sm:grid-cols-2 sm:items-center"
       >
-        <div class="h-64 sm:h-full w-full bg-surface-container-high overflow-hidden">
+        <!-- Fixed 16:10 frame (same ratio as the cover images) so nothing gets cropped oddly. -->
+        <div class="aspect-[16/10] w-full bg-surface-container-high overflow-hidden">
           <img
             v-if="item.featured_image"
             :src="item.featured_image"
             :alt="item.title"
-            class="h-full w-full object-cover"
+            class="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
           />
+          <div v-else class="cover-placeholder">
+            <span>{{ item.title.split(" — ")[0] }}</span>
+          </div>
         </div>
         <div class="p-lg flex flex-col justify-center">
           <span v-if="item.category" class="font-label-md text-secondary text-xs font-bold uppercase tracking-widest">{{ item.category.name }}</span>
@@ -49,13 +53,16 @@ const rest = computed(() => (data.value?.data ?? []).filter((p) => !p.is_feature
         :to="`/our-work/${item.slug}`"
         class="group block bg-white rounded-xl premium-border overflow-hidden hover-lift"
       >
-        <div class="h-44 w-full bg-surface-container-high overflow-hidden">
+        <div class="aspect-[16/10] w-full bg-surface-container-high overflow-hidden">
           <img
             v-if="item.featured_image"
             :src="item.featured_image"
             :alt="item.title"
-            class="h-full w-full object-cover"
+            class="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
           />
+          <div v-else class="cover-placeholder">
+            <span>{{ item.title.split(" — ")[0] }}</span>
+          </div>
         </div>
         <div class="p-md">
           <span v-if="item.category" class="font-label-md text-secondary text-xs font-bold uppercase tracking-widest">{{ item.category.name }}</span>
@@ -70,3 +77,17 @@ const rest = computed(() => (data.value?.data ?? []).filter((p) => !p.is_feature
     </div>
   </div>
 </template>
+
+<style scoped>
+/* Shown while a project has no cover image yet, instead of an empty block. */
+.cover-placeholder {
+  @apply h-full w-full flex items-center justify-center p-md text-center;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(17, 108, 70, 0.12), transparent 55%),
+    radial-gradient(circle at 85% 85%, rgba(23, 32, 51, 0.10), transparent 50%),
+    #eef3ff;
+}
+.cover-placeholder span {
+  @apply font-headline-sm text-xl sm:text-2xl text-primary/40;
+}
+</style>
