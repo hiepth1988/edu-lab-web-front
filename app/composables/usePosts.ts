@@ -1,5 +1,13 @@
+export type PostType = 'post' | 'research'
+
+// Articles live under /insights, research under /research; both share the same fields.
+export function postPath(type: PostType | undefined, slug: string) {
+  return `${type === 'research' ? '/research' : '/insights'}/${slug}`
+}
+
 export interface PostSummary {
   id: number
+  type?: PostType
   slug: string
   title: string
   excerpt: string | null
@@ -37,6 +45,7 @@ export function usePostsList(params: { category?: string; tag?: string; page?: n
 }
 
 export interface RelatedPost {
+  type?: PostType
   slug: string
   title: string
   excerpt: string | null
@@ -49,11 +58,18 @@ export interface PostCta {
   url: string | null
 }
 
+export interface PostDetail extends PostSummary {
+  content: string | null
+  related_posts: RelatedPost[]
+  cta?: PostCta | null
+  alternate_slugs?: Record<string, string>
+}
+
 export function usePostDetail(slug: string) {
   const { locale } = useI18n()
   const { request } = useApi()
 
-  return useAsyncData<{ data: PostSummary & { content: string | null; related_posts: RelatedPost[]; cta?: PostCta | null; alternate_slugs?: Record<string, string> } }>(
+  return useAsyncData<{ data: PostDetail }>(
     `post-${slug}-${locale.value}`,
     () => request(`/posts/${slug}`),
     { watch: [locale] },

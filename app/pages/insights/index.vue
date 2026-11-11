@@ -35,23 +35,7 @@ usePageSeo({ title: () => t('seo.insightsTitle'), description: () => t('seo.insi
     </div>
 
     <div v-if="activeTab === 'posts'" class="mt-xl grid grid-cols-1 sm:grid-cols-2 gap-md">
-      <NuxtLinkLocale
-        v-for="post in postsData?.data ?? []"
-        :key="post.id"
-        :to="`/insights/${post.slug}`"
-        class="group block bg-white rounded-xl premium-border overflow-hidden hover-lift"
-      >
-        <div v-if="post.featured_image" class="aspect-[1200/630] overflow-hidden">
-          <img :src="post.featured_image" :alt="post.title" class="h-full w-full object-cover" />
-        </div>
-        <div class="p-md">
-          <p v-if="post.category" class="text-xs font-bold uppercase tracking-widest text-secondary">
-            {{ post.category.name }}
-          </p>
-          <h2 class="mt-2 font-headline-sm text-primary group-hover:text-secondary transition-colors">{{ post.title }}</h2>
-          <p class="mt-xs font-body-md text-on-surface-variant">{{ post.excerpt }}</p>
-        </div>
-      </NuxtLinkLocale>
+      <PostCard v-for="post in postsData?.data ?? []" :key="post.id" :post="post" />
 
       <p v-if="!postsData?.data?.length" class="font-body-md text-on-surface-variant col-span-full">
         {{ t('insights.empty') }}
@@ -59,18 +43,7 @@ usePageSeo({ title: () => t('seo.insightsTitle'), description: () => t('seo.insi
     </div>
 
     <div v-else class="mt-xl grid grid-cols-1 sm:grid-cols-2 gap-md">
-      <NuxtLinkLocale
-        v-for="post in researchData?.data ?? []"
-        :key="post.id"
-        :to="`/research/${post.slug}`"
-        class="group block bg-white rounded-xl premium-border p-md hover-lift"
-      >
-        <p v-if="post.topic" class="text-xs font-bold uppercase tracking-widest text-secondary">
-          {{ post.topic.name }}
-        </p>
-        <h2 class="mt-2 font-headline-sm text-primary group-hover:text-secondary transition-colors">{{ post.title }}</h2>
-        <p class="mt-xs font-body-md text-on-surface-variant">{{ post.excerpt }}</p>
-      </NuxtLinkLocale>
+      <PostCard v-for="post in researchData?.data ?? []" :key="post.id" :post="{ ...post, type: 'research' }" />
 
       <p v-if="!researchData?.data?.length" class="font-body-md text-on-surface-variant col-span-full">
         {{ t('insights.empty') }}

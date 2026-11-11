@@ -1,19 +1,7 @@
-export interface ResearchSummary {
-  id: number
-  slug: string
-  title: string
-  excerpt: string | null
-  topic: { slug: string; name: string } | null
-}
+// Research items are posts with type = "research": same fields and response as articles.
+export type ResearchSummary = PostSummary & { topic: { slug: string; name: string } | null }
 
-export interface ResearchDetail extends ResearchSummary {
-  content: string | null
-  meta_title: string | null
-  meta_description: string | null
-  og_image: string | null
-  canonical_url: string | null
-  alternate_slugs?: Record<string, string>
-}
+export type ResearchDetail = PostDetail & { topic: { slug: string; name: string } | null }
 
 export function useResearchList() {
   const { locale } = useI18n()

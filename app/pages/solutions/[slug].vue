@@ -167,7 +167,7 @@ useHead({
           <NuxtLinkLocale
             v-for="related in data.data.related_insights"
             :key="related.slug"
-            :to="`/insights/${related.slug}`"
+            :to="postPath(related.type, related.slug)"
             class="group block bg-white rounded-xl premium-border p-md hover-lift"
           >
             <p class="font-headline-sm text-sm text-primary group-hover:text-secondary transition-colors">{{ related.title }}</p>
